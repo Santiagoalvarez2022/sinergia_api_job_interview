@@ -1,0 +1,83 @@
+
+
+
+// Serve up login page
+
+app.get('/', (req, res) => {
+   const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
+   if (!idToken) {
+     console.log('No ID Token found, sending login page');
+     return res.sendFile(path.resolve(__dirname, 'public', 'login.html'));
+   }
+   return res.redirect('/profile');
+ });
+ app.use('/api', controllers);
+
+
+
+ app.use(async (req, res, next) => {
+    const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
+    if (!idToken) {
+      console.log('No id token provided');
+      return res.sendStatus(401);
+    }
+  
+    // Extract user information from ID token
+    try {
+      const authService = new AuthService();
+      const userData = await authService.getUserData(idToken);
+      res.locals.user = userData;
+      console.log('ID token valid');
+      return next();
+    } catch (err) {
+      console.error('ID token invalid', err);
+      res.clearCookie(CookieService.ID_TOKEN_COOKIE.name, CookieService.ID_TOKEN_COOKIE.cookie);
+      return res.sendStatus(401);
+    }
+  });
+
+  app.get('/profile', async (req, res, next) => {
+    try {
+      console.log(res.locals);
+      
+      const {email, name, picture} = res.locals.user;
+
+      //verifica si este email ya esta en mi base de datos si no 
+      /**
+        const verifyUser = await "de una funcion que busque el gmail en mi base de dato", User.findOrCreate(where == gmail),  te pued devolver el "user" o null,  
+
+        if(verifyUser) {
+            // si el usuario ya tiene cuenta le devuelvo la info conrrespondiente
+            // si la crea por primera vez podemos enviar un valor que reconozca que es la primera vez 
+            return verifyUser 
+
+        }
+
+         
+
+       
+
+       */
+      
+
+    
+      return res.json( {email, name, picture});
+    } catch (err) {
+      console.error('Error sending profile page', err);
+      return next(err);
+    }
+  });
+
+
+
+//http://localhost:3001/api
+// app.use("/api", mainRouter)
+
+
+
+
+
+
+
+
+//levanto servidor
