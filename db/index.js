@@ -3,14 +3,17 @@ require('dotenv').config();
 const fs = require("fs");
 const path = require("path");
 const { Sequelize } = require('sequelize');
-const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG} = process.env;
+const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG} = process.env;
 
-const sequelize = new Sequelize('postgres://postgres:salvarez@localhost:5432/sinergia', {
+
+
+const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
     dialect: "postgres",
     logging: false,
     native: false,
   
   })
+
 
 
 const modelDefiners = [];

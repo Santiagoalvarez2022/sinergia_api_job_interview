@@ -1,18 +1,21 @@
+require('dotenv').config();
 const  {google}  = require('googleapis');
-
+const {CLIENT_SECRET, CLIENT_ID,REDIRECT_URI,NODE_ENV,COOKIE_DOMAIN,FIRST_SCOPES,SECOND_SCOPES} = process.env;
 
 /**
  * Service for handling authentication information
  */
+
+
 class AuthService {
-  static #CLIENT_ID ='719268423921-jt6fj84id8a4a9ubq76pg4fjvftnahbh.apps.googleusercontent.com';
-  static #CLIENT_SECRET ='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' ;
-  static #REDIRECT_URI ='http://localhost:3001/api/auth/cookie';
-  static #SCOPES = ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'];
+  static #CLIENT_ID =CLIENT_ID;
+  static #CLIENT_SECRET =CLIENT_SECRET ;
+  static #REDIRECT_URI =REDIRECT_URI;
+  static #SCOPES = [FIRST_SCOPES,SECOND_SCOPES];
 
   #oauthClient;
 
-  /**
+  /** 
    * @constructor
    */
   constructor() {
