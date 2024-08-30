@@ -49,8 +49,6 @@ router.get('/cookie', async (req, res, next) => {
   }
 });
 
-//http://localhost:3001/api/auth/api/auth/profile
-
 router.get('/profile', (req, res, next) => {
 
   try {

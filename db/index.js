@@ -57,7 +57,6 @@ const connectionToDatabase = async() =>{
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-console.log(sequelize.models, "tablas creadas models");
 
 sequelize
   .sync({ alter: true })

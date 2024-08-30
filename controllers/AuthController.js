@@ -3,12 +3,6 @@ const AuthService = require( '../services/AuthService.js') ;
 const CookieService = require('../services/CookieService.js' ) ;
 
 const AuthController = express.Router();
-
-/**
- * /api/auth/login
- *
- * When logging in, generate an auth URL
- */
 //esta funion crea usuarios
 AuthController.get('/login', (req, res) => {
   const authService = new AuthService();

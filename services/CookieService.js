@@ -1,12 +1,15 @@
 /**
  * Service for handling cookies
  */
+require('dotenv').config();
+const {DOMAIN_COOKIES_SERVICE} = process.env;
+
 class CookieService {
  
     static REFRESH_TOKEN_COOKIE = {
       name: 'REFRESH_TOKEN_COOKIE',
       cookie: {
-        domain:'localhost',
+        domain:DOMAIN_COOKIES_SERVICE,
         httpOnly: true,
         secure: true,
         sameSite: 'lax',
@@ -18,7 +21,7 @@ class CookieService {
     static REFRESH_TOKEN_COOKIE_LOGOUT = {
       name: 'REFRESH_TOKEN_COOKIE_LOGOUT',
       cookie: {
-        domain:'localhost',
+        domain:DOMAIN_COOKIES_SERVICE,
         httpOnly: true,
         secure: true,
         sameSite: 'lax',
@@ -30,7 +33,7 @@ class CookieService {
     static ID_TOKEN_COOKIE = {
       name: 'ID_TOKEN_COOKIE',
       cookie: {
-        domain:'localhost',
+        domain:DOMAIN_COOKIES_SERVICE,
         httpOnly: true,
         secure: true,
         sameSite: 'lax',
