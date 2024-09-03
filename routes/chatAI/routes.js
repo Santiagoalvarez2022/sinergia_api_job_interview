@@ -53,38 +53,6 @@ router.post("/", deleteOldAudio ,upload.single('file'),async(req,res) =>{
 
 
 
-// router.post("/checkpass",async(req,res) =>{
-//   //necesitamos midlewares de verificacion de usuario para enviar los audios, y hasta analiza el tema deverificacion facial 
-//  try {    
-//       const pass = req.body
-//       //obtener pass del front 
-//       const result = await checkPasssword(pass)
-      
-//       res.status(200).json({ result});
-      
-//  } catch (error) {
-//     res.status(400).json({result});
-  
-//  }
-// })v
-
-
-
-// router.post("/jobinterview",async(req,res)=>{
-//   console.log(req.query);
-//   try {
-//     /* obtener querys */
-//     const {type} = req.query;
-//     /*dependiende de el type se envia un prompt diferente  */
-//     // const response = await 
-
-
-    
-    
-//   } catch ({message}) {
-//     res.status(400).json({error:error.message})
-//   }
-// }); 
 
 
 
