@@ -12,7 +12,7 @@ const VoiceToText = async (pathFile, openai) => {
 
 
     } catch (error) {
-        throw Error('a Error ocurred in the Voice to Text function')
+        throw Error('Error ocurred in the Voice to Text function', {error:error})
     } 
 }
 
