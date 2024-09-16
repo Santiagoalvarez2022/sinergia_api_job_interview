@@ -1,11 +1,16 @@
 const fs = require('fs');
+const path = require('path');
 
-const VoiceToText = async (pathFile, openai) => {
+const VoiceToText = async (file,openai) => {
+    console.log('      ====== voiceToText =====');
+    //crear archivo de la ruta donde almaceno el audio del usuario
+    const tempFilePath = path.join(__dirname, 'temp-audio.wav');
+    fs.writeFileSync(tempFilePath, file);
 
     try {
        
         const response = await openai.audio.transcriptions.create({
-            file: fs.createReadStream(pathFile),
+            file: fs.createReadStream(tempFilePath),
             model: "whisper-1",
           });
         return response.text
