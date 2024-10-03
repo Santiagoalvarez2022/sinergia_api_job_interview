@@ -13,7 +13,7 @@ const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_P
     native: false,
   
   })
-
+ 
 
 
 const modelDefiners = [];

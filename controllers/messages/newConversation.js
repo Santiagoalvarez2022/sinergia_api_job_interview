@@ -1,5 +1,5 @@
 const openIa = require("../../openIa/OpenIa");
-const TextToVoice = require("../../utils/TextToVoice.JS");
+const TextToVoice = require("../../utils/TextToVoice.js");
 const path = require('path');
 const fs = require('fs');
 const { VoiceToText } = require("../../utils/VoiceToText");
