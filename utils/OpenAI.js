@@ -21,7 +21,8 @@ async function main({pathFile}) {
 
   //get a response
   const completion = await openai.chat.completions.create({
-     messages: [{ role: "system", content : transcription}],
+    //conversation deber llegar desde el front
+     messages: conversation,
      model: "gpt-4o-mini",
   });
 

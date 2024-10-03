@@ -8,7 +8,7 @@ const sendMessageAi = async(pathFile) =>{
     
    const result = await main({pathFile})
 
-   console.log("response del controller", result);
+   console.log("response del contrller", result);
 
 } 
 
