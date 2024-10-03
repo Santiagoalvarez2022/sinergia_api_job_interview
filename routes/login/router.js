@@ -38,8 +38,11 @@ router.get('/cookie', async (req, res, next) => {
     if (userData) {
 
       const result = await createUser(userData)
-
-      res.redirect(redirectTo)
+      
+      const userDataStr = encodeURIComponent(JSON.stringify(userData));
+      console.log(userDataStr);
+      return res.redirect(`${redirectTo}?user=${userDataStr}`);
+      // res.redirect(redirectTo)
     }
 
 
