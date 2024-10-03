@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {URL_API} = process.env;
 
 let date = 0
 const TextToVoice = async (openIa,response) =>{
@@ -17,7 +18,7 @@ const TextToVoice = async (openIa,response) =>{
       const buffer = Buffer.from(await newAudio.arrayBuffer());
      await fs.promises.writeFile(speechFile, buffer)
      if (newAudio.status !== 200) throw Error('Error al generar respuesta en audio')
-     return { success: true, message: 'Archivo guardado correctamente',url:`http://localhost:3001/audio/ia/${date}.mp3` };
+     return { success: true, message: 'Archivo guardado correctamente',url:`${URL_API}/audio/ia/${date}.mp3` };
 }
 
 module.exports = TextToVoice 
