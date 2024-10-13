@@ -1,10 +1,11 @@
 // require('dotenv').config()
 const OpenAI = require('openai')
+const {OPENAI_API_KEY} = process.env;
 const fs = require('fs');
 const path = require('path');
 const {VoiceToTextoiceToText, VoiceToText} = require('./VoiceToText')
 const openai = new OpenAI({
-    apiKey: 'sk-proj-QlMzX7DUGTvJne7x4WevT3BlbkFJeMGvwvQHNSkQAgAUmEPp'
+apiKey: OPENAI_API_KEY
 });
 
 
