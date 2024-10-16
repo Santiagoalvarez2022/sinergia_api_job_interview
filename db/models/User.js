@@ -5,23 +5,21 @@
       "user",
       
       {
-          id: {
-              type: DataTypes.UUID,
-              defaultValue: DataTypes.UUIDV4,
-              allowNull: false,//si osi tiene que teer un valor 
-              primaryKey: true,//
-          },
-          name: {
-              type: DataTypes.TEXT,
-              allowNull: false,
-          },
-          lastname: {
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            allowNull: false,//si osi tiene que teer un valor 
+            primaryKey: true,//
+        },
+        name: {
             type: DataTypes.TEXT,
-            },
-            email: {
-                type: DataTypes.TEXT,
-                allowNull: false,
-            },
+            allowNull: false,
+        },
+      
+        email: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
   
       },
 

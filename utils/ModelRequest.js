@@ -9,6 +9,12 @@ const modelRequest = async(messages, openia) =>{
 
     if(completion.choices[0].message.refusal) throw Error('mensaje rechazado por el modelo IA');
 
+    // #FEEDFACKFINAL
+    const arr = completion.choices[0].message.content.split(" ");
+    const leng = arr.length 
+    console.log('ULTIMA PALABRA ',arr[leng - 1]);
+    const flag = arr[leng - 1] 
+    
     return completion.choices[0].message;
 
 }
@@ -16,27 +22,3 @@ const modelRequest = async(messages, openia) =>{
 module.exports ={modelRequest};
 
 
-/*
-
- if (!start) {
-            console.log("comienzo proceso de transcripcion");
-            console.log("====> recibo audio del frontend", req.body);
-            console.log("====> recibo audio file", req.file);
-
-            if (!req.file) throw Error('req.file is undefined ./newConversation.js')
-
-            // Crea un archivo temporal a partir del archivo en memoria para poder pasarlo a OpenAI
-            console.log("ENTRO A VOICETOTEXT");
-            
-            const transcription = await VoiceToText(req.file.buffer,openIa)
-            console.log("ide del usuario",clientId,"  transcripcion del audio, ",transcription);
-
-            //AHORA DEBO AÑADIR ESTA TRANSCRIPCION A LAMORIA STORAGE DONDE SE ENCUENTRA TODA LA CONVERSACION Y DE AHI ENVIAR AL GPT
-            //COMIENZO ENVIANDO EL ID DEL USER POR QUERY DESPUES DEBERIA SER EL TOKEN
-
-            console.log("===> CONVERSATION ARRAY, DEBERIA CAPUTARAR EL LOS MENSAJES ANTERIOES DEL ID", clientId);
-            
-
-
-
-*/
