@@ -25,6 +25,7 @@ app.use('/api',mainRouter)
 app.listen(PORT, () => {
   //agregar la conxion ycreacion de las tabblas en la base de datos
 console.log(URL_FRONT);
+   console.log(PORT);
    
 }); 
 

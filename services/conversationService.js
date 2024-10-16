@@ -6,22 +6,24 @@ let sessions = [];
 clientId : identificador de user-conversacion
 */
 
-const newSession = (clientId=null,messages=[]) =>{
+const findOrCreateSession = (clientId=null,messages=[]) =>{
+    
+    console.log('entre a find createSession');
     
     clientId = clientId.trim()
-    if(!clientId) throw Error('Client id is not send to /conversationService.js');
+    if(!clientId) throw Error('Client id is not send to /conversationService/findOrCreateSession.js');
     
-    console.log(clientId);
+    console.log('id del cliente',clientId);
     
+    //busco una conversacion especifica, si no existe comienzo una nueva
     const findConversation = sessions.findIndex(e => e.clientId === clientId );
-    console.log(findConversation);
-    console.log(messages);
+    console.log("Conversacion encontrada ",findConversation);
     
     if (findConversation!== -1){
-        console.log("ACTUALIZO CONVERSACION EN MEMORIA");
-        sessions[findConversation] = {
-            ...sessions[findConversation],
-            messages : sessions[findConversation].messages.concat(messages)
+            //modifico session ya iniciada 
+        sessions[findConversation] = { 
+            clientId,
+            messages : sessions[findConversation].messages.concat(messages),
         }
         console.log('MEMORIA ACTUALIZADA A :', sessions[findConversation]);
         
@@ -30,8 +32,11 @@ const newSession = (clientId=null,messages=[]) =>{
     console.log("INICIO NUEVA CONVERSACION EN MEMORIA");
 
     sessions.push({clientId,messages})
-    return true
 } ;
+
+
+
+
 
 
 const cleanCoversation = (id) =>{
@@ -45,11 +50,14 @@ const cleanCoversation = (id) =>{
 }
 
 
-
+const getSessions = () =>{
+    return sessions
+}
 
 
 module.exports = {
-    newSession,
+    findOrCreateSession,
     cleanCoversation,
+    getSessions,
     sessions
 }

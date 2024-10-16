@@ -5,21 +5,14 @@ const path = require("path");
 const { Sequelize } = require('sequelize');
 const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = process.env;
 
+ const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
+     dialect: "postgres",
+     logging: false,
+     native: false,
 
+  })
 
-// const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-//     dialect: "postgres",
-//     logging: false,
-//     native: false,
-
-//   })
- 
-
-
-
-
-
-const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
+// const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
 
 
 
@@ -64,6 +57,15 @@ const connectionToDatabase = async() =>{
 
 
 sequelize.models = Object.fromEntries(capsEntries);
+//realaciones 
+
+
+const {User,Feedback}  = sequelize.models 
+console.log("modelos",sequelize.models);
+
+User.hasMany(Feedback);
+Feedback.belongsTo(User);
+
 
 
 sequelize
