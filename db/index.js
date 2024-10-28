@@ -5,22 +5,17 @@ const path = require("path");
 const { Sequelize } = require('sequelize');
 const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = process.env;
 
-//conexion para localjost
-//  const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-//      dialect: "postgres",
-//      logging: false,
-//      native: false,
+// // conexion para localjost
+//   const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
+//       dialect: "postgres",
+//       logging: false,
+//       native: false,
 
-//   })
+//    })
 
 const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
-
-
-
-
 const modelDefiners = [];
 const basename = path.basename(__filename);
-
 
 
 
@@ -69,12 +64,11 @@ Feedback.belongsTo(User);
 
 
 
-sequelize
-  .sync({ alter: true })
-  .then(() => {
-    console.log("tablas creadas");
-  })
-
+  sequelize
+  .drop() // Elimina todas las tablas
+  .then(() => sequelize.sync({ force: true })) // Vuelve a crear las tablas
+  .then(() => console.log("Base de datos reiniciada."))
+  .catch((error) => console.error("Error:", error));
   
 
 

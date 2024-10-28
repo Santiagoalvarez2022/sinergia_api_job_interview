@@ -31,6 +31,8 @@ class AuthService {
    * @returns
    */
   generateAuthUrl(redirectTo="") {
+    console.log('generateAuthUrl');
+
     return this.#oauthClient.generateAuthUrl({
       access_type: 'offline',
       scope: AuthService.#SCOPES,
@@ -47,7 +49,7 @@ class AuthService {
  * @param {*} authCode
  */
 async handleOAuthRedirect(authCode) {
-  console.log('ente a handle');
+  console.log('ente a handleAuth');
   
     const {tokens} = await this.#oauthClient.getToken(authCode);
     return {
@@ -64,11 +66,15 @@ async handleOAuthRedirect(authCode) {
   }
 
   async getUserData(idToken) {
+    console.log('entre a getuserdata');
+    
     const data = await this.#oauthClient.verifyIdToken({idToken});
     return data.getPayload();
   }
 
   async revokeRefreshToken(refreshToken) {
+    console.log('entre a revokeRefreshToken');
+
     await this.#oauthClient.revokeToken(refreshToken);
   }
 }

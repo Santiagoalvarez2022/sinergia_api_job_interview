@@ -7,25 +7,22 @@ const createUser = async (user) =>{
             where : {email},
             defaults : {
                 name,
-                lastname
+                lastname,
+                email
             }
         })
-        console.log("conrtroller para crear usuarios ", newUser, created);
+
+
         return {newUser, created}
+
+
     } catch (error) {
-        
+        throw Error('Error in creation of User')
     }    
 
 }
 
 
-
-/*await User.findOrCreate({
-  where: { username: 'sdepold' },
-  defaults: {
-    job: 'Technical Lead JavaScript',
-  },
-}); */
 
 
 module.exports = {

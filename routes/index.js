@@ -5,6 +5,12 @@ const routerChat = require('./chatAI/routes')
 const routerInterview = require('./interviews/jobInterview/router')
 const routerLogin = require('./login/router')
 const routerAdmin = require('./admin/router')
+
+
+
+
+//get 'http://localhost:3001/api/chat/nreconversations'
+
 mainRouter.use('/admin', routerAdmin)
 mainRouter.use('/auth', routerLogin);
 mainRouter.use('/interview', routerInterview);
