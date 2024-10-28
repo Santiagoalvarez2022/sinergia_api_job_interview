@@ -24,7 +24,7 @@ const getUsers = async () =>{
 
         //yo tengo un array con todos mis usuarios, quiero solo enviar el nombre, apellido, id, foto 
 
-      
+    
 
         console.log('users, ./getusers ', users);
 

@@ -5,17 +5,17 @@ const path = require("path");
 const { Sequelize } = require('sequelize');
 const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = process.env;
 
-// // conexion para localhost
-   const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-       dialect: "postgres",
-       logging: false,
-       native: false,   })
+// // // conexion para localhost
+//    const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
+//        dialect: "postgres",
+//        logging: false,
+//        native: false,   })
 
 
 
 //conexion deployd
 
-// const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
+const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
 
 
 
