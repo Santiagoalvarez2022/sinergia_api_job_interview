@@ -9,7 +9,7 @@ const routerAdmin = require('./admin/router')
 
 
 
-//get 'http://localhost:3001/api/chat/nreconversations'
+//get 'http://localhost:3001/api/admin'
 
 mainRouter.use('/admin', routerAdmin)
 mainRouter.use('/auth', routerLogin);
