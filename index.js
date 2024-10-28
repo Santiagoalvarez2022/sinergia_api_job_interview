@@ -8,6 +8,8 @@ const mainRouter = require('./routes/index')
 const {connectionToDatabase }= require('./db/index.js')
 const path = require('path');
  
+
+
 //midlewares
 app.use('/audio', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -18,8 +20,13 @@ app.use(cors({
 
 
 connectionToDatabase()
+
+
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
+
+
+//routing 
 app.use('/api',mainRouter)
 
 app.listen(PORT, () => {

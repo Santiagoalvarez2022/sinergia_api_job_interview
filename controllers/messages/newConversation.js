@@ -8,14 +8,23 @@ const { sessions, findOrCreateSession } = require("../../services/conversationSe
 const { modelRequest } = require("../../utils/ModelRequest");
 const { content } = require("googleapis/build/src/apis/content");
 
+
+
+
 const newConversation = async(req,res) =>{
+
+
+
     //obtengo los datos necesarios e inico la conversacion, respondo con un audio
     console.log("=========================  Nueva Peticion  =====================================");
+
     let conversation = [];
     try {
         //analizo si tiene la query start que significa si es primer mensaje
         //si es el primer mensaje no necesito hacer un voice to text
+        // url?start=true&&clientId=asdasd
         const {start,clientId} = req.query; 
+
         console.log('id client', clientId);
         
         if (start) { 
@@ -41,6 +50,9 @@ const newConversation = async(req,res) =>{
                    transcription: completion
                }); 
             }
+
+
+            
         } else {
             
             console.log('CONVERSACION INICIAD')

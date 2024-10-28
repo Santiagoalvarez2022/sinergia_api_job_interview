@@ -3,9 +3,9 @@ const router = express.Router();
 const CookieService = require('../../services/CookieService')
 const AuthService = require('../../services/AuthService.js');
 const { createUser } = require('../../controllers/logIn/createUser.js');
+const {SECRET_KEY} = process.env;
 
-
-
+const jwt = require('jsonwebtoken');
 
 router.get('/login', (req, res) => {
   console.log('entre a auth/login ');
@@ -14,6 +14,10 @@ router.get('/login', (req, res) => {
   const authUrl = authService.generateAuthUrl(redirectTo);
   return res.redirect(authUrl);
 });
+
+
+
+
 
 router.get('/cookie', async (req, res, next) => {
   console.log('entre a /cookie');
@@ -37,11 +41,26 @@ router.get('/cookie', async (req, res, next) => {
     //verifico si el usuario existe en la base de datos si no lo creo
     if (userData) {
 
+      //creo usuario en la base de datos 
       const result = await createUser(userData)
+      //creo token 
+      console.log('result de usuario', result);
       
-      const userDataStr = encodeURIComponent(JSON.stringify(userData));
-      console.log(userDataStr);
-      return res.redirect(`${redirectTo}?user=${userDataStr}`);
+       const token = jwt.sign(
+         { 
+         id: result.newUser.userId, 
+         email: result.newUser.email
+         },
+         SECRET_KEY, // Reemplaza con tu clave secreta
+       );
+
+
+      //  console.log('token creado ', token);
+      
+
+
+      // return res.redirect(`${redirectTo}?token=${token}`);
+      return res.redirect(`${redirectTo}?id=${result.newUser.id}&&name=${result.newUser.name}`);
       // res.redirect(redirectTo)
     }
 
@@ -53,11 +72,15 @@ router.get('/cookie', async (req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-
+  console.log('entre al profile');
+  
   try {
 
 
     const {email, name, picture} = res.locals.user;
+    console.log(re.locals.user, 'datos del usuario');
+    
+
     return res.json({email, name, picture});
   } catch (err) {
     console.error('Error sending profile page', err);
@@ -65,62 +88,23 @@ router.get('/profile', (req, res, next) => {
   }
 });
 
-router.get('/refresh', async (req, res) => {
-  console.log('Obtaining new ID token with the refresh token');
-  // Get the refresh token, will only be present on /refresh call
-  const refreshToken = req.cookies[CookieService.REFRESH_TOKEN_COOKIE.name];
-  // Refresh token is not present
-  if (!refreshToken) {
-    console.log('Refresh token not found.');
-    return res.sendStatus(401);
-  }
-  // Create a new ID token and set it on the cookie
-  try {
-    const authService = new AuthService();
-    // Get a non-expired ID token, after refreshing if necessary
-    const newIDToken = await authService.getNewIDToken(refreshToken);
-    res.cookie(CookieService.ID_TOKEN_COOKIE.name, newIDToken, CookieService.ID_TOKEN_COOKIE.cookie);
-    console.log('New ID token generated', newIDToken);
-    return res.sendStatus(200);
-  // Invalid refreshToken, clear cookie
-  } catch (err) {
-    console.log('Invalid refresh token');
-    res.clearCookie(CookieService.REFRESH_TOKEN_COOKIE.name, CookieService.REFRESH_TOKEN_COOKIE.cookie);
-    return res.sendStatus(401);
-  }
-});
 
-router.get('/logout', async (req, res, next) => {
-  try {
-    // Revoke refresh token access
-    const refreshToken = req.cookies[CookieService.REFRESH_TOKEN_COOKIE_LOGOUT.name];
-    const authService = new AuthService();
-    await authService.revokeRefreshToken(refreshToken);
 
-    // To clear a cookie you must have the same path specified.
-    res.clearCookie(CookieService.ID_TOKEN_COOKIE.name, CookieService.ID_TOKEN_COOKIE.cookie);
-    res.clearCookie(CookieService.REFRESH_TOKEN_COOKIE.name, CookieService.REFRESH_TOKEN_COOKIE.cookie);
-    res.clearCookie(CookieService.REFRESH_TOKEN_COOKIE_LOGOUT.name, CookieService.REFRESH_TOKEN_COOKIE_LOGOUT.cookie);
-    return res.redirect('/');
-  } catch (err) {
-    console.error('Error logging out', err);
-    return next(err);
-  }
-});
 
-router.get('/verifySession',async(req,res)=>{
-    console.log(req.cookies, "req");
-    console.log("entre en login/verify");
-    try {
-            const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
-            if (!idToken) {
-                console.log('No ID Token found, sending login page');
-                //al no encontrar un token envio una respuesta negativa al front para que alli se logeen desde una redirecion a google
-                res.status(200).json({token:false})
-              }
-            //   return res.redirect('/profile');
-        } catch (error){ res.status(400).json({error})}
-});
+
+ router.get('/verifySession',async(req,res)=>{
+     console.log(req.cookies, "req");
+     console.log("entre en login/verify");
+     try {
+             const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
+             if (!idToken) {
+                 console.log('No ID Token found, sending login page');
+                 //al no encontrar un token envio una respuesta negativa al front para que alli se logeen desde una redirecion a google
+                 res.status(200).json({token:false})
+               }
+             //   return res.redirect('/profile');
+         } catch (error){ res.status(400).json({error})}
+ });
 
 
     module.exports = router;
