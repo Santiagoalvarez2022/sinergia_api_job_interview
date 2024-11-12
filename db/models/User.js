@@ -11,16 +11,19 @@
             allowNull: false,//si osi tiene que teer un valor 
             primaryKey: true,//
         },
-        name: {
+        nickname: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
       
-        email: {
+        password: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-  
+        name: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
       },
 
       {paranoid: true}

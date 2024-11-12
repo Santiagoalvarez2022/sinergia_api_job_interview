@@ -6,7 +6,6 @@ const { VoiceToText } = require("../../utils/VoiceToText");
 const FormData = require('form-data');
 const { sessions, findOrCreateSession } = require("../../services/conversationService");
 const { modelRequest } = require("../../utils/ModelRequest");
-const { content } = require("googleapis/build/src/apis/content");
 
 
 
