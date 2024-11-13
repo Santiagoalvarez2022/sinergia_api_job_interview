@@ -41,16 +41,16 @@ router.post('/login', (async(req,res)=>{
       const result = await User.findOne({where:{
         nickname
       }})
-      if (!result) throw Error('Usuario no encontrado')
+      if (!result) throw Error('Usuario no encontrado');
       // Compara la contraseña ingresada con la contraseña hasheada
       const esValido = await bcrypt.compare(password, result.dataValues.password);
-      if (!esValido) throw Error('Contraseña incorrecta')
+      if (!esValido) throw Error('Contraseña incorrecta');
       
       //generar jwt
       const token = jwt.sign(
         { 
           id: result.dataValues.id, 
-          nickname: result.dataValues.nickname },
+          name: result.dataValues.name},
           process.env.JWT_SECRET,
         { expiresIn: '8h' }  // Expiración del token (puede variar)
     );

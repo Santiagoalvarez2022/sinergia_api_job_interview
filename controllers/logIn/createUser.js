@@ -8,7 +8,7 @@ const createUser = async (nickname,password, name) =>{
         console.log('entre a crear usuario');
         const saltRounds = 10;
         // Hashea la contraseña
-         password = await bcrypt.hash(password, saltRounds);
+        password = await bcrypt.hash(password, saltRounds);
 
 
         const [newUser, created ]= await User.findOrCreate({

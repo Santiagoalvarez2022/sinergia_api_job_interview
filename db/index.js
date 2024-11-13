@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const { Sequelize } = require('sequelize');
 const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = process.env;
+const bcrypt = require('bcrypt');
 
 // // conexion para localjost
    const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
@@ -65,9 +66,50 @@ Feedback.belongsTo(User);
 
 
   sequelize
-  .drop() // Elimina todas las tablas
-  .then(() => sequelize.sync({ force: true })) // Vuelve a crear las tablas
-  .then(() => console.log("Base de datos reiniciada."))
+  .sync({ force: false }) // Vuelve a crear las tablas
+  .then(async() => {
+    const saltRounds = 10;
+    let password = await bcrypt.hash('sinergia', saltRounds);
+    let nickname = 'admin'
+
+    const [newUser, created ]= await User.findOrCreate({
+      where : {nickname},
+      defaults : {
+          nickname,
+          password,
+          name : 'Facundo Santiago'
+      }
+  })
+
+    
+   
+    Feedback.create({
+      data : 'Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:\n\n1. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage : 'Datos personales',
+      position : "ceo"
+    })
+    const a = await Feedback.create({
+      data : '1 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage : 'Datos personales',
+      position : "ceo"
+    })
+    const b = await Feedback.create({
+      data : ' 2 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage : 'Datos personales',
+      position : "ceo"
+    })
+    const c = await Feedback.create({
+      data : '3 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage : 'Datos personales',
+      position : "ceo"
+    })
+
+     await a.setUser(newUser)    
+     await b.setUser(newUser)
+     await c.setUser(newUser)
+
+     
+  })
   .catch((error) => console.error("Error:", error));
   
 

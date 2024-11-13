@@ -3,7 +3,6 @@
  module.exports = (sequelize) => {
   sequelize.define(
       "user",
-      
       {
         id: {
             type: DataTypes.UUID,

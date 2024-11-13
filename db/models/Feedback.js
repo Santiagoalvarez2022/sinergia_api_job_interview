@@ -15,11 +15,15 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        date: {
-          type: DataTypes.DATE,
-          allowNull: false,
-            
-        }
+        stage: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        position: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        
      },
 
      {paranoid: true}

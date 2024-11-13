@@ -1,4 +1,7 @@
-const modelRequest = async(messages, openia) =>{
+const { JoinFeedbackToUser } = require("../controllers/feedbacks/createFeedback");
+const { getSessions } = require("../services/conversationService");
+const normalizeText = require('../utils/normalizeText')
+const modelRequest = async(messages, openia, clientId) =>{
     //El modelo de openia recibe un array de mensaje pero devuelve uno final que es igual a role:assistant, content:... 
 
     const completion = await openia.chat.completions.create({
@@ -9,12 +12,24 @@ const modelRequest = async(messages, openia) =>{
 
     if(completion.choices[0].message.refusal) throw Error('mensaje rechazado por el modelo IA');
 
-    // #FEEDFACKFINAL
-    const arr = completion.choices[0].message.content.split(" ");
-    const leng = arr.length 
-    console.log('ULTIMA PALABRA ',arr[leng - 1]);
-    const flag = arr[leng - 1] 
-    
+    const  message = completion.choices[0].message;
+    console.log('==================> message' , message);
+    const find = message.content.trim().includes('#FEEDBACKFINAL')
+    console.log('==================> FIND' , find);
+
+    if (find) { 
+      console.log('entre al condicional ide client ', clientId);
+      
+      const userfound = getSessions(clientId)
+      console.log(userfound, 'usuario encontrado');
+      const contentFeedback = normalizeText(message.content)
+
+      await JoinFeedbackToUser( contentFeedback, userfound.job, userfound.stage ,  clientId)
+
+
+      return {finishSession : true,...completion.choices[0].message};
+    }
+
     return completion.choices[0].message;
 
 }
