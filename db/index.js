@@ -7,12 +7,12 @@ const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = proce
 const bcrypt = require('bcrypt');
 
 // // // conexion para localjost
-//    const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-//        dialect: "postgres",
-//        logging: false,
-//        native: false,
+  //   const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
+  //       dialect: "postgres",
+  //       logging: false,
+  //       native: false,
 
-//    })
+  // })
 
 const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
 const modelDefiners = [];
