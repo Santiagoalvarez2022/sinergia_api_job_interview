@@ -13,6 +13,7 @@ const path = require('path');
 //midlewares
 app.use('/audio', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+
 app.use(cors({
   origin: URL_FRONT,  // Reemplaza con el origen de tu cliente
   credentials: true  // Permite el envío de credenciales como cookies

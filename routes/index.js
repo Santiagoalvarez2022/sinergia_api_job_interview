@@ -6,7 +6,7 @@ const routerInterview = require('./interviews/jobInterview/router')
 const routerLogin = require('./login/router')
 const routerAdmin = require('./admin/router')
 const routerFeedback = require('./feedbacks/router')
-
+const routerBlogs = require('./blogs/routes') 
 
 
 //get 'http://localhost:3001/api/chat/nreconversations'
@@ -16,5 +16,6 @@ mainRouter.use('/auth', routerLogin);
 mainRouter.use('/interview', routerInterview);
 mainRouter.use('/chat', routerChat);
 mainRouter.use('/feedback',routerFeedback);
+mainRouter.use('/blogs', routerBlogs)
 
 module.exports = mainRouter;
