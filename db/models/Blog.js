@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
                 allowNull: false
             },
             image: {
-                type: DataTypes.BYTEA,
+                type: DataTypes.BLOB,
                 allowNull: false
             },
             imageType: {
