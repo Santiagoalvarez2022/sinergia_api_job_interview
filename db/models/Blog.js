@@ -19,7 +19,11 @@ module.exports = (sequelize) => {
                 allowNull: false
             },
             image: {
-                type: DataTypes.TEXT,
+                type: DataTypes.BYTEA,
+                allowNull: false
+            },
+            imageType: {
+                type: DataTypes.CHAR(10),
                 allowNull: false
             }
         }, { paranoid: true }

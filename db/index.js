@@ -79,7 +79,7 @@ Blog.belongsTo(Author, { onDelete: 'CASCADE' })
 
 
 sequelize
-  .sync({ force: false }) // Vuelve a crear las tablas
+  .sync({ force: false, alter: true }) // Vuelve a crear las tablas
   .then(async () => {
     const saltRounds = 10;
     let password = await bcrypt.hash('sinergia', saltRounds);

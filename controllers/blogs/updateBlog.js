@@ -12,6 +12,7 @@ module.exports = {
                 title: dataBlog.title,
                 description: dataBlog.description,
                 image: dataBlog.image,
+                imageType: dataBlog.imageType
             }, { transaction })
             return thisBlog
         }).then(async (thisBlog) => {

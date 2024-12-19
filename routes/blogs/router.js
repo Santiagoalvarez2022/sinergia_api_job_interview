@@ -9,13 +9,13 @@ router.get('/', async (req, res) => {
     return GetBlogsBy(author, tag, latest, pag, size)
         .then((response) => res.status(200).json(response))
         .catch((error) => {
-            res.status(400).json({ message: 'no se pudo acceder a los Blogs con los parametros indicados', casue: error})
+            res.status(400).json({ message: 'no se pudo acceder a los Blogs con los parametros indicados', casue: error })
         });
 });
 
 router.post('/', async (req, res) => {
-    const { title, description, image, authorId, tags } = req.body;
-    await postBlogs({ title, description, image, authorId, tags })
+    const { title, description, image, imageType, authorId, tags } = req.body;
+    await postBlogs({ title, description, image, imageType, authorId, tags })
         .then(() => {
             res.status(201).json({})
         }).catch((error) => {
