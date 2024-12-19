@@ -3,18 +3,24 @@ require('dotenv').config();
 const fs = require("fs");
 const path = require("path");
 const { Sequelize } = require('sequelize');
-const {USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG,PORT_PG, URL_DATABASE} = process.env;
+const { USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG, PORT_PG, URL_DATABASE, WORK_SPACE } = process.env;
 const bcrypt = require('bcrypt');
 
-// // // conexion para localjost
-   const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-       dialect: "postgres",
-       logging: false,
-       native: false,
 
- })
+const sequelize =
+  WORK_SPACE == 'development'
+    ? new Sequelize(
+      {
+        username: USER_PG,
+        host: HOST_PG,
+        port: PORT_PG,
+        password: PASSWORD_PG,
+        database: DATABASE_PG,
+        dialect: 'postgres',
+        logging: false
+      })
+    : new Sequelize(URL_DATABASE, { logging: false });
 
-// const sequelize = new Sequelize(URL_DATABASE,{ logging: false});
 const modelDefiners = [];
 const basename = path.basename(__filename);
 
@@ -42,13 +48,13 @@ let capsEntries = entries.map((entry) => [
 ]);
 
 
-const connectionToDatabase = async() =>{   
-    
+const connectionToDatabase = async () => {
+
   try {
-      await sequelize.authenticate();
-      console.log('Connection has been established successfully.');
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
   } catch (error) {
-      console.error('Unable to connect to the database:', error);
+    console.error('Unable to connect to the database:', error);
   }
 }
 
@@ -57,62 +63,69 @@ sequelize.models = Object.fromEntries(capsEntries);
 //realaciones 
 
 
-const {User,Feedback}  = sequelize.models 
-console.log("modelos",sequelize.models);
+const { User, Feedback, Blog, Author, Tag } = sequelize.models
+console.log("modelos", sequelize.models);
 
+/* user -> feedback */
 User.hasMany(Feedback);
 Feedback.belongsTo(User);
 
+/* blogs -> author && blog -> tag */
+Blog.belongsToMany(Tag, { through: 'blogs_tags', onDelete: 'CASCADE' });
+Tag.belongsToMany(Blog, { through: 'blogs_tags', onDelete: 'CASCADE' });
+
+Author.hasMany(Blog, { onDelete: 'CASCADE' });
+Blog.belongsTo(Author, { onDelete: 'CASCADE' })
 
 
-  sequelize
+sequelize
   .sync({ force: false }) // Vuelve a crear las tablas
-  .then(async() => {
+  .then(async () => {
     const saltRounds = 10;
     let password = await bcrypt.hash('sinergia', saltRounds);
     let nickname = 'admin'
 
-    const [newUser, created ]= await User.findOrCreate({
-      where : {nickname},
-      defaults : {
-          nickname,
-          password,
-          name : 'Facundo Santiago'
+    const [newUser, created] = await User.findOrCreate({
+      where: { nickname },
+      defaults: {
+        nickname,
+        password,
+        name: 'Facundo Santiago'
       }
-  })
+    })
 
-    
-   
+
+
     Feedback.create({
-      data : 'Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:\n\n1. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
-      stage : 'Datos personales',
-      position : "ceo"
+      data: 'Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:\n\n1. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage: 'Datos personales',
+      position: "ceo"
     })
     const a = await Feedback.create({
-      data : '1 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
-      stage : 'Datos personales',
-      position : "ceo"
+      data: '1 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage: 'Datos personales',
+      position: "ceo"
     })
     const b = await Feedback.create({
-      data : ' 2 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
-      stage : 'Datos personales',
-      position : "ceo"
+      data: ' 2 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage: 'Datos personales',
+      position: "ceo"
     })
     const c = await Feedback.create({
-      data : '3 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
-      stage : 'Datos personales',
-      position : "ceo"
+      data: '3 Hola, soy un modelo de inteligencia artificial diseñado por Sinergia para ayudarte a prepararte para tus entrevistas. De acuerdo con la categoría que elegiste y el puesto proporcionado, aquí está mi primera pregunta:. ¿Puedes describir alguna experiencia pasada en la que tuviste que tomar una decisión rápida bajo presión? ¿Qué sucedió y cuál fue el resultado?',
+      stage: 'Datos personales',
+      position: "ceo"
     })
 
-     await a.setUser(newUser)    
-     await b.setUser(newUser)
-     await c.setUser(newUser)
+    await a.setUser(newUser)
+    await b.setUser(newUser)
+    await c.setUser(newUser)
 
-     
+
   })
   .catch((error) => console.error("Error:", error));
-  
 
 
 
-module.exports ={ connectionToDatabase, sequelize, ...sequelize.models};
+
+module.exports = { connectionToDatabase, sequelize, ...sequelize.models };
