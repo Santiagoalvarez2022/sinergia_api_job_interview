@@ -6,13 +6,6 @@ const { Sequelize } = require('sequelize');
 const { USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG, PORT_PG, URL_DATABASE, WORK_SPACE } = process.env;
 const bcrypt = require('bcrypt');
 
-// // // conexion para localjost
-//   const sequelize = new Sequelize(`postgresql://${USER_PG}:${PASSWORD_PG}@${HOST_PG}:${PORT_PG}/${DATABASE_PG}`, {
-//       dialect: "postgres",
-//       logging: false,
-//       native: false,
-
-// })
 
 const sequelize =
   WORK_SPACE == 'development'
@@ -27,6 +20,7 @@ const sequelize =
         logging: false
       })
     : new Sequelize(URL_DATABASE, { logging: false });
+
 const modelDefiners = [];
 const basename = path.basename(__filename);
 
