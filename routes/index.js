@@ -6,6 +6,9 @@ const routerInterview = require('./interviews/jobInterview/router')
 const routerLogin = require('./login/router')
 const routerAdmin = require('./admin/router')
 const routerFeedback = require('./feedbacks/router')
+const routerBlog = require('./blogs/router')
+const routerTag = require('./tags/router')
+const routerAuthor = require('./authors/routes')
 
 
 
@@ -15,6 +18,9 @@ mainRouter.use('/admin', routerAdmin);
 mainRouter.use('/auth', routerLogin);
 mainRouter.use('/interview', routerInterview);
 mainRouter.use('/chat', routerChat);
-mainRouter.use('/feedback',routerFeedback);
+mainRouter.use('/feedback', routerFeedback);
+mainRouter.use('/blog', routerBlog);
+mainRouter.use('/tag', routerTag);
+mainRouter.use('/author', routerAuthor);
 
 module.exports = mainRouter;
