@@ -6,7 +6,6 @@ module.exports = async (nickname, image) => {
     return await Author.create({ nickname, image })
         .then(async (a) => {
             console.log(a);
-            console.log('a');
 
             return
         }).catch((error) => {

@@ -1,6 +1,10 @@
 const { Blog, Author, Tag, sequelize } = require('../../db/index');
 
 module.exports = postBlogs = async ({ title, description, image, imageType, authorId, tags }) => {
+    
+    
+    
+    
     const transaction = await sequelize.transaction()
     return await Blog.create({ title, description, image, imageType }, { transaction })
         .then(async (thisBlog) => {

@@ -10,22 +10,21 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 primaryKey: true
             },
+            //agregar subtitle y text 
             title: {
-                type: DataTypes.CHAR(60),
+                type: DataTypes.STRING(255),
                 allowNull: false
             },
-            description: {
-                type: DataTypes.TEXT('long'),
+            
+            text: {
+                type: DataTypes.TEXT,
                 allowNull: false
             },
             image: {
-                type: DataTypes.BLOB,
+                type: DataTypes.STRING,
                 allowNull: false
             },
-            imageType: {
-                type: DataTypes.CHAR(10),
-                allowNull: false
-            }
+
         }, { paranoid: true }
     )
 }
