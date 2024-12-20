@@ -46,7 +46,7 @@ let arrayBlog = [
 
         Howard Gardner es un psicólogo, investigador y profesor de la Universidad de Harvard, conocido por desarrollar la Teoría de las Inteligencias Múltiples. Nacido en 1943 en Estados Unidos, Gardner revolucionó la psicología y la educación al proponer que la inteligencia no es una sola capacidad general, sino un conjunto de habilidades diversas que cada persona posee en distinta medida. Su trabajo sostiene que, además de la inteligencia lógico-matemática y lingüística (tradicionalmente valoradas en la educación), existen otras inteligencias igualmente importantes, como la musical, interpersonal, intrapersonal, espacial, corporal-kinestésica y naturalista. Gardner ha sido un pionero en el ámbito educativo, y su teoría ha influido en prácticas de enseñanza en todo el mundo, promoviendo un enfoque más inclusivo y adaptado a las fortalezas individuales de cada estudiante. Además de su trabajo en inteligencia, Gardner ha escrito sobre ética y el papel de los profesionales en la sociedad, alentando un desarrollo integral del ser humano que va más allá de los logros académicos
         `,
-        image :'https://asset.cloudinary.com/dvtys5yi8/20e980e615c952f8fe1b12ef7d7f51d1',
+        image :'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647531/frames_of_mind_1_ixjyte.svg',
         tags:[1]
     },
     {
@@ -78,7 +78,7 @@ Escoger una carrera que te pague
  ¿Listo para descubrir tu Ikigai y encontrar la carrera ideal? Reflexiona sobre las preguntas clave del método Ikigai y empieza a planificar tu futuro profesional hoy mismo. Explora las diferentes carreras que se alinean a tu Ikigai.
 Autor: M.Ed. Sully Solórzano Naranjo
 `,
-image : 'https://asset.cloudinary.com/dvtys5yi8/30e034ccd49559010ec346a8180b958f'
+image : 'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647574/Ikigai_1_waifgs.svg'
     },
 {
     tags :[2],
@@ -97,7 +97,7 @@ image : 'https://asset.cloudinary.com/dvtys5yi8/30e034ccd49559010ec346a8180b958f
 
 Buscar empleo de manera efectiva requiere un enfoque multifacético. Optimizar tu CV, usar plataformas de empleo, hacer networking, prepararte bien para entrevistas y aprovechar las redes sociales son técnicas clave que aumentarán tus posibilidades de éxito. Con persistencia y estrategia, lograrás encontrar el empleo que buscas.
 `,
-    image:'https://asset.cloudinary.com/dvtys5yi8/921625b4ade3353dac4b8870a7136625'
+    image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647676/las_5_mejores_tecnicas_1_efao13.svg'
 },
 {   title:'Cómo destacar en el mercado laboral actual',
     tags :[2],
@@ -149,7 +149,7 @@ Celebra pequeños logros: Cada entrevista agendada o conexión en LinkedIn es un
 Conclusión
 Destacar en el mercado laboral requiere más que habilidades técnicas. Se trata de conocerte, construir una marca personal auténtica, aprender continuamente y comunicar tu valor con confianza. Si sigues estos pasos, estarás no solo preparado para encontrar empleo, sino también para crear oportunidades que se alineen con tu propósito.
 `,
-    image:'https://asset.cloudinary.com/dvtys5yi8/e33bc5e30b015b55ed4e2fa061b78e24'},
+    image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647440/Destacar_en_el_mundo_laboral_1_vto0wz.svg'},
     {
         title:'El arte de la entrevista: Consejos para responder preguntas difíciles con confianza',
         tags :[2],
@@ -220,7 +220,7 @@ Ejemplo de cierre impactante:
 Conclusión
  El éxito en una entrevista no depende solo de tus respuestas, sino de cómo te preparas, te comunicas y manejas los desafíos. Con práctica, confianza y las estrategias adecuadas, puedes convertir incluso las preguntas más difíciles en oportunidades para destacar. Como decía Confucio: “El éxito depende de la preparación previa, y sin ella seguro que llega el fracaso”. 
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/95c38e3edfcb976f6a78e919252395a9'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647477/el_arte_de_la_entrevista_1_wfl9fw.svg'
     },
     {
         title:'Cómo convertir tu red de contactos en una herramienta para encontrar empleo',
@@ -278,7 +278,7 @@ Participa en al menos un evento o grupo profesional al mes.
 Conclusión
 Tu red de contactos es uno de los activos más valiosos en tu carrera profesional. Cultivarla con cuidado, mantenerla activa y saber aprovecharla estratégicamente puede marcar la diferencia entre encontrar un empleo más rápido o quedarse estancado en la búsqueda. Como dijo Harvey Mackay: “La red de contactos es como plantar semillas hoy para cosechar frutos mañana”.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/8544d71096223025378b3c988200c1cf'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647628/Networking_1_gwsek7.svg'
     },
     {
         title:'Errores comunes en la búsqueda de empleo y cómo evitarlos',
@@ -359,7 +359,7 @@ Recuerda que cada “no” te acerca más al “sí” correcto.
 Conclusión
 Evitar estos errores comunes puede marcar una gran diferencia en tu búsqueda de empleo. Prepárate, sé estratégico y mantén una actitud positiva. Como dijo Henry Ford: “El fracaso es simplemente la oportunidad de comenzar de nuevo, esta vez con más inteligencia”.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/a06b15b84ffb250439523249399ff041'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647446/EFN6ONCB3BET7OE4HEWOXJD254_1_a01ull.svg'
     },
     {
         title:'Construye una marca personal poderosa para destacar en el mercado laboral',
@@ -432,7 +432,7 @@ Usa estadísticas y ejemplos concretos para respaldar tus afirmaciones.
 Conclusión
 Construir una marca personal poderosa requiere tiempo, esfuerzo y autenticidad, pero los resultados valen la pena. Una marca bien definida no solo te ayuda a destacar, sino que también te posiciona como un profesional confiable y competente. Como dijo Tom Peters, autor del concepto de marca personal: “Todos somos directores generales de nuestra propia empresa: Yo S.A.”.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/7834457312b454dceb175e45d9471860'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647472/ejemplos-de-marca-personal_1_1_a1oumy.svg'
     },
     {
         title:'Cómo construir un proceso de reclutamiento efectivo y moderno',
@@ -513,7 +513,7 @@ Organiza eventos para exalumnos de procesos de selección.
 Conclusión
 Un proceso de reclutamiento efectivo no solo garantiza que encuentres al mejor talento, sino que también refuerza la reputación de tu empresa como empleador de elección. Como dijo Simon Sinek: “Contrata por actitud, entrena para las habilidades”. Invierte en un sistema que valore tanto a los candidatos como a tu organización, y cosecharás los beneficios a largo plazo.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/b6d500ce2efde02e2cdbffd368d81d88'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734666874/RecruitingTrends2020-7-626x372_2_l2hdkt.svg'
     },
     {
         title:'Cómo construir equipos de alto rendimiento desde la etapa de reclutamiento',
@@ -601,7 +601,7 @@ Adapta tu estrategia a las tendencias del mercado laboral.
 Conclusión
 Un equipo de alto rendimiento comienza con un proceso de reclutamiento bien pensado y ejecutado. Como dijo Steve Jobs: “Es mejor contratar a los mejores y dejar que te digan qué hacer, en lugar de contratar a alguien promedio y decirles qué hacer”. Invierte tiempo y recursos en atraer y seleccionar talento excepcional, y el retorno será inigualable.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/29db735a35812d07bdd7c659c5f20fc1'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647525/Equipos-de-Alto-Rendimiento-920x526_1_jpkvhg.svg'
     },
     {
         title:'Cómo crear una cultura empresarial que atraiga y retenga talento',
@@ -685,7 +685,7 @@ Celebra los hitos culturales que refuercen los valores de la empresa.
 Conclusión
  Una cultura empresarial sólida es un diferenciador competitivo en el mercado laboral actual. Como dijo Tony Hsieh, ex-CEO de Zappos: “La cultura de tu empresa es la marca de tu empresa”. Al construir un entorno que valore a las personas, atraerás y retendrás al mejor talento, garantizando el éxito a largo plazo
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/e698fe7981e1f8bd7a7c24987b4cebe2'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734666443/que_es_cultura_empresarial_1_dpo6dg.svg'
     },
     {
         tags:[3],
@@ -770,7 +770,7 @@ Busca retroalimentación directamente de los empleados para hacer ajustes proact
 Conclusión
  Retener talento clave es una inversión que paga dividendos en términos de productividad, innovación y estabilidad. Como dijo Simon Sinek: “Las personas no compran lo que haces, compran por qué lo haces”. Haz de tu empresa un lugar donde los empleados encuentren propósito, crecimiento y reconocimiento, y ellos te lo devolverán con compromiso y resultados excepcionales.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/302b9f1fce42f3112418ee3f8061e8cc'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647639/retencion_de_talento_1_uvpkgw.svg'
     },
     {
         tags:[3],
@@ -853,7 +853,7 @@ Invita a los candidatos no seleccionados a participar en futuras oportunidades.
 Conclusión
  Un proceso de selección justo y transparente no solo beneficia a los candidatos, sino que fortalece la confianza en tu empresa como empleador. Como dijo Howard Schultz, ex-CEO de Starbucks: “Cuando trabajas con transparencia, inspiras confianza”. Implementa estas prácticas, y verás cómo no solo atraes al mejor talento, sino que también construyes relaciones sólidas y duraderas con quienes interactúan con tu organización.
 `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/fb60ec79690aba29a69979f2fe812580'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647519/equipo_de_alto_rendimiento_1_vryffz.svg'
     },
     {
         tags :[1],
@@ -866,7 +866,7 @@ Entonces ¿Qué podemos hacer para que esto no ocurra? Prestar atención a nuest
 En conclusión, vemos cómo cuidar de nuestra salud mental es esencial para mantener nuestra productividad y bienestar laboral. Aprender a reconocer y gestionar nuestras emociones no solo mejora nuestro rendimiento en el trabajo, sino que nos permite vivir de manera más plena y consciente. Priorizar el bienestar emocional, escuchar nuestras emociones y actuar en consecuencia son pasos clave para asegurar una vida más saludable y equilibrada en todas sus áreas.
 Bibliografía
 Lemarroy, F. (2022). Salud Mental, la clase que nadie nos dio. TEDxTecdeMty https://www.youtube.com/watch?v=_9agX3gY1jU)`,
-        image:'https://asset.cloudinary.com/dvtys5yi8/d39e1d9dd7c08a837289fad170314203'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647602/IMG-20240914-WA0102_1_1_jizskq.svg'
     },
     {
         tags :[2],
@@ -903,7 +903,7 @@ TRABAJO REMOTO: Sin conocimientos de inglés
  No, yo me estoy moviendo en el mundo tech, todo remoto desde 2020 y no sé hablar inglés en absoluto y no sé programar en absoluto aunque hice cursos de programación, entiendo lo básico de la programación, pero no me gusta programar, sino me gusta asistir a los programadores en lo que yo estoy buscando, ¿no? Pero no, no hace falta ninguna de esas cosas que mencionaste recién. 
 
  Después de todo, me mudé a otra empresa. Ya ataqué en modo Europa una empresa llamada Multiplay. Y lo mismo, con el CEO, me llevo muy bien. Él vive en Barcelona, pero es argentino, y hoy en día lo considero uno de mis grandes amigos. Hace tres semanas vino de vacaciones para Buenos Aires, viajé, lo vi, fuimos a merendar, después me fui a jugar al fútbol y nos llevamos súper bien. Eso es parte de las relaciones laborales, que día a día te van llevando a conocerte más con tus compañeros, abrirte a crear un ambiente laboral sano, de hecho, de poder trabajar con amigos, eso es todo mucho más fácil. Tengo esa política de trabajo, de intentar llevarme bien con todos.`,
-        image:'https://asset.cloudinary.com/dvtys5yi8/3ad1203ff3f29e9bc85c740acf90c30b'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647425/1704971995744_1_ocosa2.svg'
     },
     {
         tags :[1],
@@ -932,11 +932,11 @@ Después de Todo Cargas(empresa en la que trabajó hace unos años) hice el boot
 Y bueno apareció el bootcamp que me gustó muchísimo, lo recomiendo al 100%, el SDR es una profesión que está creciendo en un auge muy grande, cada día empresas están buscando SDR y no hay, sinceramente no hay. Y bueno, nada, fue lo que a mí me llevó a Europa, y hoy en día es algo que amo hacer. De hecho, multiplay llegué a hacer TeamGrid, SDRs, tuve 25 SDR a cargo. Y nada, ahí pude ver muchísimas cosas y también aprender, seguir aprendiendo, que creo que eso es lo más importante.
 
  Quien quiera comunicarse conmigo, bueno, está a disposición mi LinkedIn, que me agregue, porque siempre tener más contactos te da mucha más visibilidad, y tener más visibilidad te da muchas más posibilidades a poder salir escalando. Y bueno, nada, muchas gracias por la oportunidad y obviamente cualquier cosa que necesiten estoy 100% a disposición. `,
-        image:'https://asset.cloudinary.com/dvtys5yi8/b41da5dca724f6e97b1246e6fc368bcb'
+        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647410/1702556113337_1_suhbcv.svg'
     },
 
 ]
-
+ 
 const addAuthors = (authorId, Tag, Blog) => arrayBlog.map((blog)=>{
 
     text = blog.text.replace(/\n+/g, '\n').trim('')
