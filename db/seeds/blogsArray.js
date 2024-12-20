@@ -50,7 +50,7 @@ let arrayBlog = [
         tags:[1]
     },
     {
-        tags :[1],
+        tags :[1,2],
         title : 'Tu razón de ser',
         text : `Elegir tu carrera puede ser un desafío especialmente con tantas opciones disponibles. Estudiar te encamina a convertirte en un experto en tu área de interés, pero ¿cómo escoger una carrera entre tantas alternativas? Aquí es donde el método Ikigai puede ayudarte a tomar la mejor decisión para tu futuro profesional y personal.
   ¿Qué es el Método Ikigai?
@@ -81,7 +81,7 @@ Autor: M.Ed. Sully Solórzano Naranjo
 image : 'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647574/Ikigai_1_waifgs.svg'
     },
 {
-    tags :[2],
+    tags :[2,1],
     title:'Las 5 mejores técnicas para buscar empleo',
     text:`Buscar empleo puede ser un proceso desafiante, pero con las estrategias adecuadas, puedes maximizar tus posibilidades de éxito. Aquí te presentamos las 5 mejores técnicas para encontrar trabajo de manera más eficiente:
 1. Optimiza tu CV y carta de presentación
@@ -282,7 +282,7 @@ Tu red de contactos es uno de los activos más valiosos en tu carrera profesiona
     },
     {
         title:'Errores comunes en la búsqueda de empleo y cómo evitarlos',
-        tags:[2],
+        tags:[2,1],
         text:`Buscar empleo puede ser un desafío, y es fácil caer en errores que, sin darte cuenta, retrasen tu éxito. El escritor Oscar Wilde dijo una vez: “La experiencia es simplemente el nombre que le damos a nuestros errores”. Sin embargo, no tienes que aprender de tus errores si puedes anticiparte a ellos. En este artículo, identificaremos los errores más comunes y cómo evitarlos para maximizar tus oportunidades.
 
 1. Enviar un CV genérico
@@ -360,7 +360,7 @@ Conclusión
 Evitar estos errores comunes puede marcar una gran diferencia en tu búsqueda de empleo. Prepárate, sé estratégico y mantén una actitud positiva. Como dijo Henry Ford: “El fracaso es simplemente la oportunidad de comenzar de nuevo, esta vez con más inteligencia”.
 `,
         image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647446/EFN6ONCB3BET7OE4HEWOXJD254_1_a01ull.svg'
-    },
+    }, 
     {
         title:'Construye una marca personal poderosa para destacar en el mercado laboral',
         tags:[2],
@@ -856,84 +856,74 @@ Conclusión
         image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647519/equipo_de_alto_rendimiento_1_vryffz.svg'
     },
     {
-        tags :[1],
-        title:'El Impacto de la Salud Mental en la Vida Laboral',
-        text:`Nuestra vida se compone de diferentes áreas, como la familiar, la social, la laboral, la educativa, etc. y todas ellas están interconectadas. Esto quiere decir que se afectan mutuamente; lo que nos sucede en una de ellas, tiene repercusiones en otras áreas. Por ejemplo, luego de una fuerte discusión familiar podemos observar como nuestro estado de ánimo se modifica. Debido a esto, notamos cómo nuestra energía para realizar las tareas cotidianas disminuye. Entonces, observamos cómo no tenemos la misma predisposición para entablar conversaciones con nuestros amigos. También, puede suceder que no vamos a contar con el mismo grado de concentración para realizar nuestras funciones en el trabajo.
-La salud física y emocional es una de las áreas más importantes de nuestra vida, y debemos cuidarla constantemente. Esto se debe a que nos permite vivir una vida plena, funcional y equilibrada. La Organización Mundial de la Salud (OMS) define la salud como “un estado de completo bienestar físico, mental y social, y no solamente la ausencia de afecciones o enfermedades”. A nivel físico, es más fácil identificar cuando nos sentimos enfermos porque lo vemos reflejado en un malestar que podemos observar y medir en nuestro cuerpo. También, porque hay mayor conciencia y educación al respecto, estamos mucho más familiarizados con las señales de las enfermedades físicas.
-Sin embargo, cuando hablamos de la salud a nivel emocional, es más complicado reconocer los síntomas. Esto se debe a que tienden a desarrollarse de manera sutil y gradual. Además, solemos normalizar ciertos estados de ánimo pensando que “ya van a pasar”; pero esto es muy peligroso porque no percibimos que ese es el momento de tomar algún tipo de acción. Todas estas emociones perjudiciales que reprimimos se manifestarán con el tiempo en los diferentes aspectos de nuestras vidas.
-En cuanto al área laboral, vamos a observar cómo disminuye nuestro rendimiento y productividad porque nuestra concentración está afectada por nuestro estado anímico. Además, seremos más vulnerables al estrés o burnout (desgaste profesional). Asimismo, nuestra motivación se ve perjudicada, lo que afecta nuestra búsqueda de oportunidades de crecimiento laboral. Finalmente, nuestro cuerpo también comienza a manifestar señales debido a la falta de cuidado de nuestra salud mental, como insomnio, dolores de cabeza, contracturas, entre otros.
-Entonces ¿Qué podemos hacer para que esto no ocurra? Prestar atención a nuestras emociones y no subestimarlas. Debemos aprender a diferenciar cuando se tratan de emociones pasajeras y cuando no lo son. ¿Cómo podemos aprender esto? Según Lemarroy (2022), debemos familiarizarnos con ellas y para ello necesitamos escucharlas, es decir, debemos permitirnos sentir nuestras emociones. Por ejemplo, si estamos tristes, lloremos. De esta forma, vamos a ir conociéndonos mejor y aprender más de nosotros mismos y cómo podemos dominar nuestras emociones y usarlas para nuestro beneficio. Algunas técnicas que nos permiten conocerlas mejor son: la meditación, el registro diario en algún cuaderno o aplicación y la búsqueda del apoyo profesional.
-En conclusión, vemos cómo cuidar de nuestra salud mental es esencial para mantener nuestra productividad y bienestar laboral. Aprender a reconocer y gestionar nuestras emociones no solo mejora nuestro rendimiento en el trabajo, sino que nos permite vivir de manera más plena y consciente. Priorizar el bienestar emocional, escuchar nuestras emociones y actuar en consecuencia son pasos clave para asegurar una vida más saludable y equilibrada en todas sus áreas.
-Bibliografía
-Lemarroy, F. (2022). Salud Mental, la clase que nadie nos dio. TEDxTecdeMty https://www.youtube.com/watch?v=_9agX3gY1jU)`,
-        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647602/IMG-20240914-WA0102_1_1_jizskq.svg'
+        title :"La Matriz de Eisenhower: Una Herramienta Práctica para Priorizar en la Vida Diaria",
+        text: `En el ritmo acelerado de la vida moderna, donde se combinan responsabilidades familiares, personales y laborales, gestionar el tiempo y las prioridades es una habilidad fundamental. La Matriz de Eisenhower es una herramienta simple pero poderosa que puede ayudarte a tomar decisiones más conscientes y equilibradas. Este artículo te muestra cómo usar esta matriz para mejorar tu organización en diferentes ámbitos de la vida.
+¿Qué es la Matriz de Eisenhower?
+La Matriz de Eisenhower fue popularizada por Dwight D. Eisenhower, conocido por su capacidad para gestionar decisiones complejas. Este sistema clasifica las tareas en cuatro cuadrantes según su urgencia e importancia:
+Urgente e importante: Acciones que requieren atención inmediata.
+Importante pero no urgente: Actividades esenciales que necesitan planificación.
+Urgente pero no importante: Tareas que suelen ser interrupciones y que pueden delegarse.
+Ni urgente ni importante: Acciones que generan distracción y deben evitarse.
+Aplicación en la Vida Diaria
+1. Gestíon del Hogar
+Cuadrante 1: Resolver problemas domésticos urgentes, como reparar una fuga de agua.
+Cuadrante 2: Organizar un presupuesto mensual o planificar la limpieza general.
+Cuadrante 3: Delegar tareas como recoger la ropa de la tintorería.
+Cuadrante 4: Reducir el tiempo dedicado a ver televisión sin un propósito claro.
+2. Relaciones Personales
+Cuadrante 1: Atender emergencias familiares o apoyar a un ser querido en un momento difícil.
+Cuadrante 2: Planificar tiempo de calidad con amigos y familiares.
+Cuadrante 3: Responder a mensajes menos prioritarios que pueden esperar.
+Cuadrante 4: Evitar discusiones innecesarias o redes sociales sin objetivo.
+3. Cuidado Personal
+Cuadrante 1: Atender problemas de salud inmediatos.
+Cuadrante 2: Crear hábitos saludables como ejercitarse o meditar.
+Cuadrante 3: Reducir tiempo en actividades superficiales como revisar notificaciones constantes.
+Cuadrante 4: Eliminar el exceso de ocio improductivo.
+Beneficios para la Vida
+Balance: Ayuda a mantener el equilibrio entre lo urgente y lo importante.
+Claridad de Prioridades: Te permite enfocarte en lo que realmente aporta valor.
+Mejor Relación con el Tiempo: Aprende a decir "no" a distracciones innecesarias.
+Mayor Bienestar: Reduce el estrés al organizar tus responsabilidades.
+Conclusión
+La Matriz de Eisenhower es mucho más que una herramienta de organización; es una filosofía de vida. Al aplicarla en tus rutinas diarias, puedes encontrar un equilibrio que te permita cumplir tus objetivos mientras disfrutas de las cosas que realmente importan. ¡Empieza hoy a organizar tu vida con esta poderosa herramienta!`,
+tags : [1],
+image:"https://res.cloudinary.com/dvtys5yi8/image/upload/v1734729317/fa97d86f-de9c-4ea6-965a-2d3463790e24_1_oqxje8.svg"
     },
-    {
-        tags :[2],
+        
+        
+   
+   {
+        title :"La Regla del 80/20: Cómo Enfocarte en lo Que Realmente Importa",
+        text: `En un mundo lleno de distracciones y tareas interminables, el principio de Pareto, también conocido como la regla del 80/20, es una guía poderosa para maximizar tu eficiencia y enfocarte en lo esencial. Este artículo te ayudará a comprender y aplicar esta regla en diferentes ámbitos de la vida para obtener mejores resultados con menos esfuerzo.
+¿Qué es la Regla del 80/20?
+La regla del 80/20 establece que aproximadamente el 80% de los resultados provienen del 20% de las causas. Este principio, identificado por el economista italiano Vilfredo Pareto, se aplica en numerosos contextos, desde la economía hasta la vida personal. La clave está en identificar y centrarte en ese 20% que genera el mayor impacto.
+Aplicaciones Prácticas de la Regla del 80/20
+1. Gestión del Tiempo
+Enfócate en lo que importa: Identifica las actividades que generan el mayor impacto en tus objetivos y priorízalas.
+Elimina tareas innecesarias: Reduce el tiempo dedicado a tareas que no aportan valor significativo.
+2. Finanzas Personales
+Ahorra inteligentemente: Analiza qué gastos representan el 20% que consume el 80% de tus ingresos y optimiza.
+Invierte con enfoque: Concentra tus recursos en las inversiones o ahorros que ofrecen el mayor rendimiento.
+3. Relaciones Personales
+Crea conexiones significativas: Dedica tiempo de calidad al 20% de las relaciones que aportan mayor alegría y apoyo.
+Evita el agotamiento emocional: Aprende a limitar tu energía en interacciones que no son recíprocas o positivas.
+4. Cuidado Personal
+Fomenta hábitos clave: Identifica el 20% de las actividades que mejoran significativamente tu bienestar, como dormir bien o hacer ejercicio.
+Evita la sobrecarga: No intentes abarcarlo todo; prioriza lo que realmente importa.
+Beneficios de Aplicar el Principio de Pareto
+Mayor Productividad: Haces más en menos tiempo al enfocarte en lo esencial.
+Reducción de Estrés: Elimina la presión de intentar ser perfecto en todo.
+Claridad en las Prioridades: Te ayuda a definir lo que realmente importa en tu vida.
+Mayor Satisfacción: Experimentas logros más significativos al concentrarte en lo valioso.
+Conclusión
+La regla del 80/20 no se trata de trabajar más, sino de trabajar mejor. Al identificar y priorizar el 20% que realmente importa, puedes transformar tu enfoque y alcanzar el éxito de manera más eficiente. ¡Empieza hoy mismo a simplificar tu vida aplicando este poderoso principio!`,
+image:"https://res.cloudinary.com/dvtys5yi8/image/upload/v1734729711/ebf8c390-9cc3-47b6-8d71-65e67010b0be_1_p5836m.svg",
+tags:[1]
 
-        title:'Networking y Multifuncionalidad: Claves para Superar Obstáculos',
-        text:`SER MULTIFACÉTICO
-
- Empecé a trabajar en el mundo formal desde muy chico, aproximadamente 13 o 14 años, cuando empecé a trabajar de DJ. Trabajaba en diferentes eventos privados y demás, y bueno, la verdad que me iba bastante bien. Y dentro de lo que es el mundo formal, venía, teniendo muchas fiestas, pero arrancó la pandemia.La pandemia me mató en medio de esta etapa estaba estudiando la carrera de Derecho, de hecho me faltan 5 materias para poder recibirme. Y bueno, ese año me comprometo con mi actual esposa,y en marzo se cerró todo. Cuando me comprometo con ella, ya tenía pensado qué era delo que iba a trabajar. 
-Tenía muchas ofertas laborales para defender el estudio jurídico. Que los deberes de los estudios jurídicos eran profesores míos de la facultad. Y bueno, ahí fue... yo estaba confiado de que iba a estudiar un cuatrimestre más sin trabajar para poder aprovechar y meter más materias, y ya en el segundo cuatrimestre, que avanzaba en julio y agosto, avanzaba en algún estudio jurídico que iba a elegir el que más me pague, y me iba a lanzar por ahí. 
-
- Me he sentido multifacético, por llamarme de esa manera, me gustaron las dos cosas, así que no tenía problema en hacer las dos cosas al mismo tiempo (ser DJ y ejercer abogacía), lo he hecho durante mucho tiempo. 
- Creo que esto es algo esencial, el poder conocerse, la verdad que me gustan hacer varias cosas y puedo desempeñarme en cada una de ellas. 
- En marzo arranca la famosa pandemia, y ahí fue un poco complicado porque todos esos estudios jurídicos,empezaron a cerrarse. Entonces todas las ofertas que yo tenía de a poco se empezaban a bajar. Y bueno, ya era agosto, septiembre, y no pude conseguir absolutamente nada.  Y había empezado a irme un poquito más a el famoso “lo que venga”, ¿no? Yo me casaba en febrero, ya me quedaba poco tiempo y ya había que empezar a pagar algunas cosas, y bueno, no tenía nada.
-
-Redes Sociales: Linkedin
-Entonces, empecé a descargarme y a empezar a utilizar el famoso LinkedIn. Que,es una herramienta completamente maravillosa,invito a cualquier persona que busque un trabajo a que lo pueda utilizar. 
-Y ahí fue donde encontré primero a una gran persona que me ayudó muchísimo, que se llama Alan, es un headhunter muy conocido dentro de la data tech y dentro de lo que es el mundo de LinkedIn, que tiene un montón de contactos.
-Él conocía un poquito de mi historia, no sé por dónde, pero conocía un poquito de mí. Y cuando vi que estaba buscando trabajo, lo publicó en su red de LinkedIn, y ahí muchas personas comenzaron a hablarme y comenzaron, las primeras entrevistas laborales.
-
-
-NETWORKING: Relaciones de trabajo
- Me ayudó muchísimo contar con  una persona que tiene muchos contactos dentro del área de lo que es Recursos Humanos o Head Hunter Tech.
- Es como en la vida general el hecho de ir formando una red de contactos, tanto en LinkedIn como en la vida, te ayuda a poder escalar a niveles de confianza increíbles, creo que no está mal bancos de datos, de contactos,ahora hablando de vos, también el hecho de poder tener contactos que te recomienden.
-
- Gracias a esta búsqueda empecé a trabajar en una pequeña startup de 3 empleados nada más, que se llama Todo Cargas, crean una aplicación con un tipo Google o Cabify, pero en vez de conectar personas ,conectaban mudanzas. 
-Tuve una entrevista con el CEO de Todo Cargas, : en el mismo momento que tuve la entrevista dije que este es mi lugar. 
-A lo mejor, a ver, no trabajo más en Todos Cargas desde el 2023, estuve dos años y medio ahí, y hoy en día me sigo escribiendo con el CEO de Todo Cargas,para la fecha de cumpleaños, navidad, año nuevo, yo le sigo escribiendo a él. Tenemos una relación muy linda, muy sana y es algo fundamental porque el día de mañana, yo no sé si me gustaría volver a tocar, y sé que si un día yo  puedo escribir, la relación sigue completamente vigente, y es importante mantenerla.
-
-
-STARTUP: ¿Trabajar en una, te ayuda a crecer?
-Yo creo que sí, sin duda. Más que nada porque después empecé a hacerme cargo de más cosas dentro de lo que es Todo Cargas, terminé manejando básicamente todo, y bueno, me ayudó un montón a aprender procesos, a interpretar partes comerciales fundamentales, tema del marketing, tema de comunicación, y cuando son startups muy chicas, te prepara para una vida laboral mucho más grande, porque básicamente haces de todo, y hace también que vos aprendas de todo, no solamente te focalices en tu área laboral, ¿no? Y eso fue algo que a mí me ayudó un montón. 
-
-TRABAJO REMOTO: Sin conocimientos de inglés
- No, yo me estoy moviendo en el mundo tech, todo remoto desde 2020 y no sé hablar inglés en absoluto y no sé programar en absoluto aunque hice cursos de programación, entiendo lo básico de la programación, pero no me gusta programar, sino me gusta asistir a los programadores en lo que yo estoy buscando, ¿no? Pero no, no hace falta ninguna de esas cosas que mencionaste recién. 
-
- Después de todo, me mudé a otra empresa. Ya ataqué en modo Europa una empresa llamada Multiplay. Y lo mismo, con el CEO, me llevo muy bien. Él vive en Barcelona, pero es argentino, y hoy en día lo considero uno de mis grandes amigos. Hace tres semanas vino de vacaciones para Buenos Aires, viajé, lo vi, fuimos a merendar, después me fui a jugar al fútbol y nos llevamos súper bien. Eso es parte de las relaciones laborales, que día a día te van llevando a conocerte más con tus compañeros, abrirte a crear un ambiente laboral sano, de hecho, de poder trabajar con amigos, eso es todo mucho más fácil. Tengo esa política de trabajo, de intentar llevarme bien con todos.`,
-        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647425/1704971995744_1_ocosa2.svg'
-    },
-    {
-        tags :[1],
-        title:'Adaptarse y Vencer: Una Historia Inspiradora',
-        text:`EL DEPORTE Y EL MUNDO LABORAL
-
-Juego un deporte que se llama Powerchair,fútbol en silla de ruedas. Y sí, juego desde el año 2013 aproximadamente. Es un deporte que en mi ciudad no se jugaba, así que tuve que ir a conocerlo a Buenos Aires.Me gustó el deporte, lo traje a mi ciudad, tuve que ir dando charlas para encontrar compañeros porque es un deporte que se realiza en silla de ruedas eléctricas, entonces, tuve que ir buscando compañeros en la misma condición que yo y demás.
-Hoy justamente hablé de eso con unos compañeros de trabajo, que sí, es como la rutina psicológica de la semana, de hecho, sentarme en esa silla, que es otra silla de rueda de juego, y olvidarte de todo, y jugar, practicar, ir teniendo compañeros de equipo, competencias y demás.Está bueno también como para salir del mundo laboral diario, ¿no?
-
-DEPORTES EN EQUIPO Y SUS BENEFICIOS
-Para lo que es el trabajo en sí, te ayuda un montón. En mi primer trabajo, sinceramente no tenía muchos compañeros, por el hecho de que éramos 3 nomás, y cada uno hacía lo suyo, pero después cuando entré en mi actual trabajo, que era una empresa más grande,ya tenía equipos de trabajo. Ahí te das cuenta que trabajando juntos, teniendo el mismo objetivo, una visión y demás, hace que el trabajo sea diferente, y te das cuenta de cuando uno de los del equipo va para otro lado, es muy difícil poder llegar a eso. El deporte me enseñó, me enseñó un montón de cosas y bueno, lo llevo mucho al trabajo en sí.
-
-RESILIENCIA
-Tengo una discapacidad de todo, básicamente cuello para abajo, no puedo mover ninguna parte del cuerpo, me desplazo en silla de ruedas eléctricas.Pero bueno, creo que también el hecho de haber nacido con esta enfermedad, con esta patología, desde chico pude relacionarme muy bien con compañeros de la escuela, jardín, primaria, secundaria, después como te dije anteriormente arranqué la facultad, y bueno me acostumbré a vivir así, lo llevo normalmente sin ningún tipo de problema, siempre digo lo mismo,obviamente que la vida te va presentando obstáculos y demás, pero bueno, depende de uno, el hecho de querer estar bien, de ir superando día a día cada cosa, uno siempre va buscando lo que le hace bien. Entonces,si yo estoy por ejemplo en un trabajo en el cual ya no me siento cómodo y eso afecta mi rendimiento diario de humor y demás, hay que salir de ahí. Si yo tengo un amigo el cual ya no me hace bien absolutamente, esa persona ya no es más amigo y no me puedo relacionar más. Entonces esas pequeñas decisiones diarias para buscar el bienestar de uno hacen la diferencia para poder intentar estar bien todo el tiempo. 
-
-
-
-LA EDUCACIÓN COMO BASE FUNDAMENTAL
-Creo que la parte fundamental también es la educación, no hace falta hacer carreras largas. Yo actualmente me desarrollo como es guiar, es un representante de venta que conecta empresas con empresas a través de reuniones comerciales y es un bootcamp que lo hice en cuatro meses y eso me abrió la puerta a poder trabajar en empresas de Europa, como estoy haciendo actualmente, o Estados Unidos, directamente me relaciono con dueños de empresas que manejan 500 empleados quizás y fue todo a través de un bootcamp que duró 4 meses. Entonces, creo que está en una necesidad de poder ir actualizándose, viendo el mercado, porque fue lo que yo vi, que en el mercado había muchos programadores y yo había estudiado programación pero no me había gustado la verdad, pero empecé a pensar, bueno si hay un montón de programadores, pero qué pasa, cada programador puede desarrollar software, pero ese software alguien le tiene que vender. Si alguien no lo vende, no sirve de nada.Ahí es donde entro yo. 
-
-ADAPTABILIDAD Y DISPOSICIÓN AL CAMBIO
-El mercado se va moviendo a lugares que uno no puede llegar a entender. Cuando yo arranqué, todo se movía a través de correo electrónico. Hoy en día ese correo electrónico está funcionando cada día menos, ¿por qué? Porque todo el mundo está haciendo eso, hoy en día lo que más es el boom en ventas es el tema de las llamadas en frío, aunque no lo creas, y bueno, el hecho de poder estudiar eso y saber lo mejor en tu área, yo sé que en unos meses, quizás ya no funcionan y va a funcionar otra cosa, ir moviéndose permanentemente porque sabemos que el mercado tanto laboral, económico y social se va moviendo y nunca es igual. 
-
-Después de Todo Cargas(empresa en la que trabajó hace unos años) hice el bootcamp. ¿Por qué hice el bootcamp? Porque yo ya me daba cuenta que en Todo Cargas tenía un techo, si bien estaba al lado del CEO,  era una startup chica que no facturaba mucho mensualmente y ya el sueldo no me alcanzaba para las perspectivas que yo quería y como te dije anteriormente, no sabía inglés, Entonces dije bueno, ¿qué puedo llegar a hacer? Y ahí apareció LinkedIn,empecé a buscar y dije bueno, voy a buscar algo en España.
-
-Y bueno apareció el bootcamp que me gustó muchísimo, lo recomiendo al 100%, el SDR es una profesión que está creciendo en un auge muy grande, cada día empresas están buscando SDR y no hay, sinceramente no hay. Y bueno, nada, fue lo que a mí me llevó a Europa, y hoy en día es algo que amo hacer. De hecho, multiplay llegué a hacer TeamGrid, SDRs, tuve 25 SDR a cargo. Y nada, ahí pude ver muchísimas cosas y también aprender, seguir aprendiendo, que creo que eso es lo más importante.
-
- Quien quiera comunicarse conmigo, bueno, está a disposición mi LinkedIn, que me agregue, porque siempre tener más contactos te da mucha más visibilidad, y tener más visibilidad te da muchas más posibilidades a poder salir escalando. Y bueno, nada, muchas gracias por la oportunidad y obviamente cualquier cosa que necesiten estoy 100% a disposición. `,
-        image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734647410/1702556113337_1_suhbcv.svg'
-    },
+    }
+        
+        
 
 ]
  
