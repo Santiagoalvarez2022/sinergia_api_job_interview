@@ -12,7 +12,6 @@ module.exports = (sequelize) => {
             },
             nickname: {
                 type: DataTypes.CHAR(60),
-                unique: true,
                 allowNull: false
             },
             image: {

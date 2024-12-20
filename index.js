@@ -1,6 +1,6 @@
 require('dotenv').config();
 const {PORT,URL_FRONT} = process.env;
-const express = require('express');
+const express = require('express'); 
 const cors = require('cors');
 const cookieParser = require( 'cookie-parser');
 const app = express();//CREE UNA INSTANCIA DE EXPRESS, QUIERE DECIR QUE TENFGO ACCESO A TODOS SUS METODOS 
@@ -18,7 +18,6 @@ app.use(cors({
   origin: URL_FRONT,  // Reemplaza con el origen de tu cliente
   credentials: true  // Permite el envío de credenciales como cookies
 }));
-
 
 connectionToDatabase()
 
