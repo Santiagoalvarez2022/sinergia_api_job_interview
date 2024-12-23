@@ -10,12 +10,14 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 primaryKey: true
             },
-            //agregar subtitle y text 
             title: {
                 type: DataTypes.STRING(255),
                 allowNull: false
             },
-            
+            subtitle:{
+                type: DataTypes.STRING(255),
+                allowNull: false
+            },
             text: {
                 type: DataTypes.TEXT,
                 allowNull: false

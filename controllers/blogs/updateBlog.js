@@ -10,9 +10,9 @@ module.exports = {
         }).then(async (thisBlog) => {
             await thisBlog.update({
                 title: dataBlog.title,
+                subtitle: dataBlog.subtitle,
                 description: dataBlog.description,
                 image: dataBlog.image,
-                imageType: dataBlog.imageType
             }, { transaction })
             return thisBlog
         }).then(async (thisBlog) => {

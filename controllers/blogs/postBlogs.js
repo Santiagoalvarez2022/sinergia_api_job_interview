@@ -1,12 +1,8 @@
 const { Blog, Author, Tag, sequelize } = require('../../db/index');
 
-module.exports = postBlogs = async ({ title, description, image, imageType, authorId, tags }) => {
-    
-    
-    
-    
+module.exports = postBlogs = async ({ title, subtitle, description, image, authorId, tags }) => {
     const transaction = await sequelize.transaction()
-    return await Blog.create({ title, description, image, imageType }, { transaction })
+    return await Blog.create({ title, subtitle, description, image, imageType }, { transaction })
         .then(async (thisBlog) => {
             const thisAuthor = await Author.findByPk(authorId, { transaction })
             if (thisAuthor) {

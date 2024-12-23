@@ -23,8 +23,8 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { title, description, image, imageType, authorId, tags } = req.body;
-    await postBlogs({ title, description, image, imageType, authorId, tags })
+    const { title, subtitle, description, image, authorId, tags } = req.body;
+    await postBlogs({ title, subtitle, description, image, imageType, authorId, tags })
         .then(() => {
             res.status(201).json({})
         }).catch((error) => {
