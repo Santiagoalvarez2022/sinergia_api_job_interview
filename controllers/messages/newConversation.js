@@ -4,14 +4,14 @@ const { VoiceToText } = require("../../utils/VoiceToText");
 const { sessions, findOrCreateSession } = require("../../services/conversationService");
 const { modelRequest } = require("../../utils/ModelRequest");
 
-
+ 
 
 const newConversation = async(req,res) =>{
     //obener client id por req y no por query
 
     const clientId = req.user.id
     //obtengo los datos necesarios e inico la conversacion, respondo con un audio
-    console.log("=========================  Nueva Peticion  =====================================");
+    console.log("========================  Nueva Peticion  =====================================");
 
     let conversation = [];
     try {
