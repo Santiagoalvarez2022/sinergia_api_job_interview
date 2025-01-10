@@ -11,9 +11,10 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const verifyToken = require('../../midlewares/verifyToken');
 const { cleanConversation } = require('../../controllers/messages/cleanConversation');
+const verifyTypeMime = require('../../midlewares/verifyTypeMime');
 
 
-router.post('/newConversation', verifyToken ,upload.single('file'), newConversation );
+router.post('/newConversation', verifyToken ,upload.single('file'),verifyTypeMime,newConversation );
 router.delete('/deleteConversation', verifyToken , cleanConversation );
 
 

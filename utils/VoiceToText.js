@@ -3,8 +3,12 @@ const path = require('path');
 
 const VoiceToText = async (file,openai) => {
     console.log('      ====== voiceToText =====');
+
+
+    console.log('archivo recibido      ', file );
+    
     //crear archivo de la ruta donde almaceno el audio del usuario
-    const tempFilePath = path.join(__dirname, 'temp-audio.wav');
+    const tempFilePath = path.join(__dirname, 'temp-audio.mp4');
     fs.writeFileSync(tempFilePath, file);
 
     try {

@@ -81,11 +81,9 @@ Blog.belongsTo(Author, { onDelete: 'CASCADE' })
 
 
 sequelize 
-  .sync({ force:true, alter: true }) // Vuelve a crear las tablas
+  .sync({ force:false}) // Vuelve a crear las tablas
   .then(async () => {
     await seeds(Author,Blog,Tag)
-
-
   })
   .catch((error) => console.error("Error:", error));
 
