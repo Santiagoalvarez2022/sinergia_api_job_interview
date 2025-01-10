@@ -38,6 +38,8 @@ const newConversation = async(req,res) =>{
             //GENERO RESPUESTA DE VOZ 
             //COMPLATION.CONTENT tiene el mensaje de 
             const audio = await TextToVoice(openIa,completion.content,clientId)
+            
+            
             if (audio.success) {
                 // Envía el archivo de audio como respuesta
                 res.status(200).json({

@@ -9,23 +9,22 @@ const {connectionToDatabase }= require('./db/index.js')
 const path = require('path');
  
 
-
+ 
 //midlewares
 app.use('/audio', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-
+ 
 app.use(cors({
-  origin: URL_FRONT,  // Reemplaza con el origen de tu cliente
+  // origin: URL_FRONT,  // Reemplaza con el origen de tu cliente 
+  origin:['https://sinergia-dev.vercel.app','http://localhost:5555'], 
   credentials: true  // Permite el envío de credenciales como cookies
-}));
-
-connectionToDatabase()
-
-
+}));  
+   
+connectionToDatabase() 
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
-
+  
 //routing 
 app.use('/api',mainRouter)
 
