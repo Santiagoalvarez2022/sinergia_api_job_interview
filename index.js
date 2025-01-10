@@ -16,7 +16,7 @@ app.use(express.json());
  
 app.use(cors({
   // origin: URL_FRONT,  // Reemplaza con el origen de tu cliente 
-  origin:['https://sinergia-dev.vercel.app','http://localhost:5555'], 
+  origin:['https://sinergia-dev.vercel.app','http://localhost:5555', 'https://d7c7-45-224-103-72.ngrok-free.app'], 
   credentials: true  // Permite el envío de credenciales como cookies
 }));  
    
