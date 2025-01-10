@@ -16,7 +16,7 @@ app.use(express.json());
  
 app.use(cors({
   // origin: URL_FRONT,  // Reemplaza con el origen de tu cliente 
-  origin:['https://sinergia-dev.vercel.app','http://localhost:5555', 'https://d7c7-45-224-103-72.ngrok-free.app'], 
+  origin:'*', 
   credentials: true  // Permite el envío de credenciales como cookies
 }));  
    
@@ -31,7 +31,7 @@ app.use('/api',mainRouter)
 app.listen(PORT, () => {
   //agregar la conxion ycreacion de las tabblas en la base de datos
 console.log(URL_FRONT);
-   console.log(PORT);
+  console.log(PORT);
    
 }); 
 
