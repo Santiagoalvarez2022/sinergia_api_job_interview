@@ -8,8 +8,6 @@ const mainRouter = require('./routes/index')
 const {connectionToDatabase }= require('./db/index.js')
 const path = require('path');
  
-
- 
 //midlewares
 app.use('/audio', express.static(path.join(__dirname, 'public')));
 app.use(express.json());

@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 const { createAuthorAdmin } = require('./seeds/seed');
 const { seeds } = require('./seeds/seed.js');
 
+console.log('url de la base de dato',URL_DATABASE,PASSWORD_PG);
 
 const sequelize =
   WORK_SPACE == 'development'
@@ -15,7 +16,7 @@ const sequelize =
       {
         username: USER_PG,
         host: HOST_PG,
-        port: PORT_PG,
+        port: PORT_PG, 
         password: PASSWORD_PG,
         database: DATABASE_PG,
         dialect: 'postgres',
