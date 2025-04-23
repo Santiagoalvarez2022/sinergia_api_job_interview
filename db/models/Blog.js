@@ -13,18 +13,31 @@ module.exports = (sequelize) => {
             //agregar subtitle y text 
             title: {
                 type: DataTypes.STRING(255),
-                allowNull: false
-            },
+                allowNull: false,
+                unique:true 
+            }, 
             
             text: {
                 type: DataTypes.TEXT,
+                allowNull: false
+            },
+            author: {
+                type: DataTypes.TEXT,
+                allowNull: false
+            },
+            approved : {
+                type: DataTypes.ENUM('pending', 'approved'),
+                allowNull: false, // opcional, según tu lógica
+                defaultValue: 'pending' // opcional
+            },
+            design_type: {
+                type: DataTypes.INTEGER,
                 allowNull: false
             },
             image: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-
         }, { paranoid: true }
     )
 }

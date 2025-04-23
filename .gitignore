@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+../../HowStarted.png
+../HowStarted.svg
+../sinergia/
+../sinergia_api_job_interview/
+../steps/

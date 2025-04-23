@@ -1,40 +1,51 @@
-const { Blog, Tag, Author, sequelize } = require('../../db/index');
+const { Blog } = require('../../db/index');
 
-module.exports = GetBlogsBy = async (author, tag, latest, pag, size) => {
-    // latest = Boolean(latest)
-    // return await Blog.findAll({
-    //     order: latest ? [['createdAt', 'DESC']] : sequelize.random(),
-    //     limit: size,
-    //     offset: latest ? null : (pag - 1) * size,
-    //     include: [
-    //         { model: Author, attributes: ['id', 'nickname', 'image'], where: author ? { 'id': author } : {} },
-    //         { model: Tag, attributes: ['id', 'name'], through: { attributes: [] }, where: tag ? { 'id': tag } : {} }
-    //     ]
-    // })
+// Controller to retrieve blogs
+const getBlogs = async (req, res) => {
+  // Can get all blogs, a specific blog by ID, or blogs by an author
+  try {
+    const { author, id  } = req.query;
+   
+    if (author) {
+      const blogs = await Blog.findAll({
+        where: { author, approved : 'approved' }
+      });
 
-    return Blog.findAll({
-        attributes: ['id', 'title', 'image'],
-        include: [
-            {
-              model: Author,  // Incluir los datos del autor
-              attributes: ['nickname'],  // Puedes incluir los campos que necesites del autor
-            },
-            {
-              model: Tag,     // Si también quieres incluir las etiquetas asociadas al blog
-              where: {
-                name: tag,  // Aquí se hace la comparación con el nombre de la etiqueta
-              },
-            }
-          ]
-    })
+      return res.status(200).json(blogs);
+    } 
+    // If a blog ID is provided, return that specific blog
+    else if (id) {
+      const blog = await Blog.findByPk(id);
 
-}
+      // If no blog is found, return 404
+      if (!blog) {
+        return res.status(404).json({
+          status: 404,
+          message: `Blog with ID ${id} not found`
+        });
+      }
 
-/*
+      return res.status(200).json(blog);
+    } 
+    // If no query is provided, return all blogs
+    else {
+       
+        const blogs = await Blog.findAll({
+          where: { approved : 'approved'}
+        });
+      return res.status(200).json(blogs);
+    }
 
-include: {
-            model: Tag,
-            where: {
-              name: tag,  // Aquí se hace la comparación con el nombre de la etiqueta
-            },
-          },*/
+  } catch (error) {
+    // Log the error for debugging purposes
+    console.error("Error getting blogs:", error.message);
+
+
+    res.status(400).json({ 
+      status: 400,
+      error: error.message 
+    });
+  }
+};
+
+module.exports = getBlogs;

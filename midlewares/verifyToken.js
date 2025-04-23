@@ -17,8 +17,6 @@ const authenticateToken =  (req, res, next) => {
     // Verificamos el token
     jwt.verify(token,  process.env.JWT_SECRET, async (err, user) => {
         if (err) return res.status(403).json({ message: 'Token inválido' });
-        
-        console.log('user en midleware   ', user  );
         const findUser = await UserExist(user.id)
 
         req.user = user; // Guardamos los datos del usuario en req.user

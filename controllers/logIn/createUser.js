@@ -42,19 +42,12 @@ const logIn = async (nickname,password) =>{
     // Compara la contraseña ingresada con la contraseña hasheada
     const esValido = await bcrypt.compare(password, result.password);
        
-    console.log(esValido, ' password ddddddddd');
     
-    
-
-        
-
-        console.log(result , "resulttado de login");
-
-       
+    if (!esValido) {
+        throw Error('incorrect password ')
+    }
 
     return {status : true, result}
-
-   
 
 }
 
