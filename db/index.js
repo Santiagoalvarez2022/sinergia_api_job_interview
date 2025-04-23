@@ -27,7 +27,6 @@ const modelDefiners = [];
 const basename = path.basename(__filename);
 
 
-
 /* agregamos cada uno de los archivos a un array "modelDefiners" */
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(

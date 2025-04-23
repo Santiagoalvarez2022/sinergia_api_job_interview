@@ -2,10 +2,18 @@ const {arrayBlog,addAuthors} = require('./blogsArray')
 const bcrypt = require('bcrypt');
 
 const seeds = async(Admin) =>{
-    const saltRounds = 10;
-    let password = await bcrypt.hash('salvarez@', saltRounds);
+
+    const findAdmin = Admin.findAll({where:{
+        username : 'salvarez@'
+    }})
     
-    await Admin.create({username:'sefacundo@2025', password})
+    if (!findAdmin) {
+        const saltRounds = 10;
+        let password = await bcrypt.hash('salvarez@', saltRounds);
+        
+        await Admin.create({username:'sefacundo@2025', password})
+    }
+        
 }
 
 
