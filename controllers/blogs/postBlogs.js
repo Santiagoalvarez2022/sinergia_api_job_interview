@@ -1,32 +1,38 @@
-const { Blog, Author, Tag, sequelize } = require('../../db/index');
+const { Blog} = require('../../db/index');
 
-module.exports = postBlogs = async ({ title, description, image, imageType, authorId, tags }) => {
-    
-    
-    
-    
-    const transaction = await sequelize.transaction()
-    return await Blog.create({ title, description, image, imageType }, { transaction })
-        .then(async (thisBlog) => {
-            const thisAuthor = await Author.findByPk(authorId, { transaction })
-            if (thisAuthor) {
-                return { thisBlog, thisAuthor }
-            } else {
-                throw new Error('no hay ningun autor con el id especificado.');
-            }
-        }).then(async (prevData) => {
-            const Tags = await Promise.all(tags.map(tagId => Tag.findByPk(tagId, { transaction })))
-            if (Tags.includes(null) || Tags.includes(undefined)) {
-                throw new Error('no se pudo encontrar uno de los id de tags solicitados');
-            }
-            return { ...prevData, Tags }
-        }).then(async ({ thisBlog, thisAuthor, Tags }) => {
-            await thisBlog.setAuthor(thisAuthor, { transaction })
-            await thisBlog.addTags(Tags, { transaction })
-            await transaction.commit()
-            return
-        }).catch(async (err) => {
-            await transaction.rollback()
-            throw new Error('no se pudo crear el Blog.', { cause: err });
+// Controller to handle blog post creation
+const postBlogs = async (req, res) => {
+    try {
+        // Extract blog data from the request body
+        const { title, image, text, design_type ,author } = req.body;
+
+        // Check for required fields
+        if (!title || !image || !text || !design_type ||!author) {
+            throw Error('Incomplete information');
+        }
+
+        // Create new blog post
+        const new_blog = await Blog.create({ title, image, text, design_type,author }); 
+
+        // Return success response with created blog
+        res.status(201).json(new_blog);
+
+    } catch (error) { 
+        // Log the error for debugging
+        console.error("Error creating blog:", error.message);
+
+        // Return a 400 or 500 depending on the error
+        if (error.message.includes('Incomplete information')) {
+            return res.status(400).json({ 
+                message: error.message 
+            });
+        }
+
+        // Generic server error
+        res.status(500).json({ 
+            message: "Internal Server Error",
         });
-}
+    }
+};
+
+module.exports = postBlogs;

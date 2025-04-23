@@ -10,16 +10,16 @@ const { seeds } = require('./seeds/seed.js');
 
 
 const sequelize =
-  WORK_SPACE == 'development'
+  WORK_SPACE === 'development' 
     ? new Sequelize(
-      {
+      { 
         username: USER_PG,
         host: HOST_PG,
-        port: PORT_PG,
+        port: PORT_PG,  
         password: PASSWORD_PG,
-        database: DATABASE_PG,
+        database: DATABASE_PG, 
         dialect: 'postgres',
-        logging: false
+        logging: false 
       })
     : new Sequelize(URL_DATABASE, { logging: false });
 
@@ -37,9 +37,6 @@ fs.readdirSync(path.join(__dirname, "/models"))
   .forEach((file) => {
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
-/* le pasamos por params a cada uno de los modelos definidos en la carpeta models "sequelize" */
-
-/* le pasamos por params a cada uno de los modelos definidos en la carpeta models "sequelize" */
 
 modelDefiners.forEach((model) => model(sequelize));
 
@@ -65,8 +62,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 //realaciones 
 
 
-const { User, Feedback, Blog, Author, Tag } = sequelize.models
-console.log("modelos", sequelize.models);-
+const { User, Feedback, Blog, Author, Tag, Admin } = sequelize.models
 
 /* user -> feedback */
 User.hasMany(Feedback);
@@ -76,18 +72,18 @@ Feedback.belongsTo(User);
 Blog.belongsToMany(Tag, { through: 'blogs_tags', onDelete: 'CASCADE' });
 Tag.belongsToMany(Blog, { through: 'blogs_tags', onDelete: 'CASCADE' });
 
-Author.hasMany(Blog, { onDelete: 'CASCADE' });
-Blog.belongsTo(Author, { onDelete: 'CASCADE' })
+// Author.hasMany(Blog, { onDelete: 'CASCADE' });
+// Blog.belongsTo(Author, { onDelete: 'CASCADE' })
 
 
 sequelize 
-  .sync({ force:false}) // Vuelve a crear las tablas
+  .sync({ force: false}) 
+  // seeds para los usuarios
   .then(async () => {
-    await seeds(Author,Blog,Tag)
+    // await seeds(Author,Blog,Tag,User)
+    await seeds(Admin)
+    
   })
   .catch((error) => console.error("Error:", error));
-
-
-
 
 module.exports = { connectionToDatabase, sequelize, ...sequelize.models };
