@@ -1,12 +1,13 @@
 const { where } = require('sequelize');
-const {Blog} = require('../../db/index.js')
+const {Blog, Tag} = require('../../db/index.js')
 
 const getBlogsAdmin = async(req,res) =>{
     try {
         const { author, id  } = req.query;
         if (author) {
             const blogs = await Blog.findAll({
-              where: { author}
+              where: { author},
+              include : Tag
             });
       
             return res.status(200).json(blogs);
@@ -28,11 +29,18 @@ const getBlogsAdmin = async(req,res) =>{
           // If no query is provided, return all blogs
           else {
             let blogs = await Blog.findAll({
-                attributes: { exclude: ['deletedAt', 'updatedAt'] }
+                attributes: { exclude: ['deletedAt', 'updatedAt'] },
+                include: [{
+                  model: Tag,
+                  exclude: ['deletedAt', 'updatedAt'],
+                  attributes: ['id', 'name'], // columnas que querés del tag
+                  through: { attributes: [] } // ← esto oculta blogs_tags
+                }]
             });
+            const tags = await Tag.findAll()           
             
             let num = 0;
-            blogs = blogs.map(({createdAt, approved,design_type,author,id,image,title,text})=>{
+            blogs = blogs.map(({createdAt, approved,design_type,author,id,image,title,text, tags})=>{
                 let date = new Date(createdAt)
                 date = date.toLocaleString(
                     'es-AR', {
@@ -42,12 +50,13 @@ const getBlogsAdmin = async(req,res) =>{
                     }
                 )
                 return  {
-                    data : {design_type, image, text, id},
-                    data_show : {num : ++num, title, approved,  author, date }
+                    data : {design_type, image, text, id, tags},
+                    data_show : {num : ++num, title, approved,  author, date, }
                 }
             })
 
-            return res.status(200).json(blogs);
+
+            return res.status(200).json({blogs,tags});
           }
     } catch (error) {
         res.status(400).json(error)
