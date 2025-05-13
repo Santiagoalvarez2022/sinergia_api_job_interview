@@ -9,16 +9,15 @@ const isValidEmail = (email) => {
 
 // Función para crear un nuevo usuario
 const createUser = async (req,res) => {
-    console.log('CREAR USUARIO');
     try {
         let {nickname, password, email, name, lastname} = req.body
         if (!nickname || !password || !email || !name || !lastname) throw Error('Incomplete data to create users');
-        if (!isValidEmail(email)) throw Error('Email is not valid');
+        if (!isValidEmail(email)) throw Error('Email no valido.');
         // Busca si el email o nombre de uuario existe
         const findNickName = await User.findOne({where:{nickname}});
-        if (findNickName) throw Error('Nickname already exists'); 
+        if (findNickName) throw Error('Este nombre de usuario ya existe'); 
         const findEmail = await User.findOne({where:{email}});
-        if (findEmail) throw Error('Email already exists');
+        if (findEmail) throw Error(`El email '${email}' ya está registrado en una cuenta. `);
 
         // Define el número de rondas para generar la sal en el hash
         const saltRounds = 10;
@@ -48,45 +47,6 @@ const createUser = async (req,res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-// Función para iniciar sesión
-const logIn = async (nickname, password) => {
-    /*
-    - Busca un usuario en la base de datos por su nickname
-    - Verifica si la contraseña es correcta
-    - Devuelve los datos del usuario si es válido
-    */
-
-    const result = await User.findOne({
-        where: {
-            nickname
-        }
-    });
-
-    // Si no se encuentra el usuario, lanza un error
-    if (!result.length) throw Error('Usuario no encontrado');
-
-    // Compara la contraseña ingresada con la contraseña hasheada almacenada
-    const esValido = await bcrypt.compare(password, result.password);
-
-    // Si la contraseña no es válida, lanza un error
-    if (!esValido) {
-        throw Error('incorrect password');
-    }
-
-    // Devuelve el estado y la información del usuario
-    return { status: true, result };
-};
-
 module.exports = {
     createUser,
-    logIn
 };

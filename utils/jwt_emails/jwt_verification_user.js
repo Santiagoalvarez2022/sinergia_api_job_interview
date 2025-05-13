@@ -14,7 +14,6 @@ const createToken = ({name, email, nickname}) =>{
 }
 
 const validateTokenAuth = async (token) => {
-    console.log('entre a validar el token');
     return new Promise((resolve, reject) => {
       jwt.verify(token, process.env.JWT_EMAILS, async (err, user) => {
         console.log(err, user);
