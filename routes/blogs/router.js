@@ -14,4 +14,7 @@ router.post('/', verifyTokenAdmin,postBlogs)
 //GET - get all blogs or specific
 router.get('/', getBlogs)
 
+//GET - get blog by id
+router.get('/:id', getBlogById)
+
 module.exports = router;

@@ -3,6 +3,8 @@ const { Blog, Tag, Blogs_tags } = require('../../db/index');
 // Controller to retrieve blogs
 const getBlogs = async (req, res) => {
   // Can get all blogs, a specific blog by ID, or blogs by an author
+  console.log('ENTRE A LA RUTA DE GETBLOGS');
+  
   try {
     const tags = await Tag.findAll({
       attributes: { exclude: ['deletedAt', 'updatedAt', 'createdAt'] },
@@ -26,11 +28,9 @@ const getBlogs = async (req, res) => {
       if (blogsFound.length) {
 
         if (blogsFound.length < 4) {
-          console.log('es menor a 4');
           //por efectos visuales de que el carrucel debe tener como minimo 4 elementos completo hasta un minimo de 4 el array de blogs recibidos
           let n = 4 - blogsFound.length
-          console.log('diferneces',n);
-          let complete = Array(n).fill({empty: true, id:false})
+          let complete = Array(n).fill({empty: true, id:'s'})
           console.log(complete);
           
           blogsFound = [...blogsFound, ...complete]
@@ -38,7 +38,7 @@ const getBlogs = async (req, res) => {
         
         let arrayByTag = {
           name,
-          array : blogsFound
+          array : blogsFound,
         }
         blogs.push(arrayByTag)
       }
