@@ -1,25 +1,33 @@
 const {arrayBlog,addAuthors} = require('./blogsArray')
 const bcrypt = require('bcrypt');
 
-const seeds = async(Admin) =>{
+const seeds = async(Admin, Tag) =>{
 
-    const findAdmin = Admin.findAll({where:{
+    const findAdmin = await Admin.findAll({where:{
         username : 'salvarez@'
     }})
+    console.log('busco admin ', findAdmin);
     
-    if (!findAdmin) {
+    if (!findAdmin.length) {
+        console.log('creao el admin porque no existe');
+        
         const saltRounds = 10;
         let password = await bcrypt.hash('salvarez@', saltRounds);
         
         await Admin.create({username:'sefacundo@2025', password})
     }
-        
+    
+    await Tag.create({name : 'Habilidades para la vida'});
+    await Tag.create({name : 'Búsqueda de empleo'});
+    await Tag.create({name : 'Para reclutadores'});     
 }
 
 
 module.exports = {
     seeds
 }
+
+
 
 // //creo los registro en la base de datos y luego los relaciono
 // const newAuthor = await Author.create({nickname:'Sinergia',image:'https://res.cloudinary.com/dvtys5yi8/image/upload/v1734640846/sinergialogo_2_1_qptsap.png'})

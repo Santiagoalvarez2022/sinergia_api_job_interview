@@ -61,26 +61,30 @@ sequelize.models = Object.fromEntries(capsEntries);
 //realaciones 
 
 
-const { User, Feedback, Blog, Author, Tag, Admin } = sequelize.models
+const { User, Feedback, Blog, Tag, Admin, Blogs_tags, EmailVerification } = sequelize.models
+console.log('modelos, ', sequelize.models);
 
 /* user -> feedback */
 User.hasMany(Feedback);
 Feedback.belongsTo(User);
 
-/* blogs -> author && blog -> tag */
-Blog.belongsToMany(Tag, { through: 'blogs_tags', onDelete: 'CASCADE' });
-Tag.belongsToMany(Blog, { through: 'blogs_tags', onDelete: 'CASCADE' });
+Blog.belongsToMany(Tag, { through: Blogs_tags });
+Tag.belongsToMany(Blog, { through: Blogs_tags });
 
-// Author.hasMany(Blog, { onDelete: 'CASCADE' });
-// Blog.belongsTo(Author, { onDelete: 'CASCADE' })
+// 🔑 Asociaciones directas para poder incluir
+Blogs_tags.belongsTo(Blog, { foreignKey: 'blogId' });
+Blogs_tags.belongsTo(Tag,  { foreignKey: 'tagId' });
+
+User.hasOne(EmailVerification);
+EmailVerification.belongsTo(User);
 
 
 sequelize 
   .sync({ force: false}) 
-  // seeds para los usuarios
+  // seeds para los usuarios 
   .then(async () => {
     // await seeds(Author,Blog,Tag,User)
-    await seeds(Admin)
+    await seeds(Admin, Tag)
     
   })
   .catch((error) => console.error("Error:", error));

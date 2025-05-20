@@ -1,46 +1,55 @@
-const { Blog } = require('../../db/index');
+const { Blog, Tag, Blogs_tags } = require('../../db/index');
 
 // Controller to retrieve blogs
 const getBlogs = async (req, res) => {
   // Can get all blogs, a specific blog by ID, or blogs by an author
+  console.log('ENTRE A LA RUTA DE GETBLOGS');
+  
   try {
-    const { author, id  } = req.query;
-   
-    if (author) {
-      const blogs = await Blog.findAll({
-        where: { author, approved : 'approved' }
-      });
+    const tags = await Tag.findAll({
+      attributes: { exclude: ['deletedAt', 'updatedAt', 'createdAt'] },
+    })
 
-      return res.status(200).json(blogs);
-    } 
-    // If a blog ID is provided, return that specific blog
-    else if (id) {
-      const blog = await Blog.findByPk(id);
+    const blogs = []
 
-      // If no blog is found, return 404
-      if (!blog) {
-        return res.status(404).json({
-          status: 404,
-          message: `Blog with ID ${id} not found`
-        });
+    for (let x = 0; x < tags.length; x++) {
+      const {id, name} = tags[x];
+      
+      let blogsFound = await Blogs_tags.findAll(
+       {
+        where :{ tagId : id },
+        include : {
+          model : Blog, 
+          where : {approved : 'approved'}
+        }
       }
+      )
+      
+      if (blogsFound.length) {
 
-      return res.status(200).json(blog);
-    } 
-    // If no query is provided, return all blogs
-    else {
-       
-        const blogs = await Blog.findAll({
-          where: { approved : 'approved'}
-        });
-      return res.status(200).json(blogs);
+        if (blogsFound.length < 4) {
+          //por efectos visuales de que el carrucel debe tener como minimo 4 elementos completo hasta un minimo de 4 el array de blogs recibidos
+          let n = 4 - blogsFound.length
+          let complete = Array(n).fill({empty: true, id:'s'})
+          console.log(complete);
+          
+          blogsFound = [...blogsFound, ...complete]
+        }
+        
+        let arrayByTag = {
+          name,
+          array : blogsFound,
+        }
+        blogs.push(arrayByTag)
+      }
+      
     }
+
+    res.status(200).json(blogs)
 
   } catch (error) {
     // Log the error for debugging purposes
     console.error("Error getting blogs:", error.message);
-
-
     res.status(400).json({ 
       status: 400,
       error: error.message 

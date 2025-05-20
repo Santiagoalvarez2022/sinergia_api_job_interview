@@ -14,12 +14,24 @@
             type: DataTypes.TEXT,
             allowNull: false,
         },
-      
+        email:{
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        status:{
+            type: DataTypes.ENUM('active','inactive'),
+            defaultValue: 'inactive',
+            allowNull: false,
+        },
         password: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
         name: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        lastname: {
             type: DataTypes.TEXT,
             allowNull: false,
         },

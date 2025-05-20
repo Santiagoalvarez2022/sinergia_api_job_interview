@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
 const {Admin} = require('../db/index.js')
 const {JWT_SECRET_ADMIN} = process.env
 
