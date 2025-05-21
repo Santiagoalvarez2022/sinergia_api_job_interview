@@ -82,11 +82,6 @@ EmailVerification.belongsTo(User);
 sequelize 
   .sync({ force: false}) 
   // seeds para los usuarios 
-  .then(async () => {
-    // await seeds(Author,Blog,Tag,User)
-    await seeds(Admin, Tag)
-    
-  })
   .catch((error) => console.error("Error:", error));
 
 module.exports = { connectionToDatabase, sequelize, ...sequelize.models };
