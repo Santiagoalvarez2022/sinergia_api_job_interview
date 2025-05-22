@@ -11,7 +11,7 @@
             primaryKey: true,
         },
         token:{
-            type : DataTypes.CHAR(255),
+            type : DataTypes.STRING(255),
             allowNull: false,
         }, 
         used : {

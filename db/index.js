@@ -80,8 +80,11 @@ EmailVerification.belongsTo(User);
 
 
 sequelize 
-  .sync({ force: false}) 
+  .sync({ alter: true}) 
   // seeds para los usuarios 
+  .then(async()=>{
+    await seeds(Admin, Tag)
+  })
   .catch((error) => console.error("Error:", error));
 
 module.exports = { connectionToDatabase, sequelize, ...sequelize.models };
