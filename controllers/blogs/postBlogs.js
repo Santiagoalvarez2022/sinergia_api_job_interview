@@ -13,7 +13,8 @@ const postBlogs = async (req, res) => {
             throw Error('Incomplete information');
         }
         // //find correct tag
-        const tagsFound = []
+        const tagsFound = [];
+
         for (let index = 0; index < tags.length; index++) {
             const {id} = tags[index];
             const findTag = await Tag.findByPk(id)
@@ -30,6 +31,8 @@ const postBlogs = async (req, res) => {
             await new_blog.addTags(tagsFound[index])
         }
         
+        console.log(new_blog);
+        
 
         // Return success response with created blog
         res.status(201).json(new_blog);
@@ -38,17 +41,9 @@ const postBlogs = async (req, res) => {
         // Log the error for debugging
         console.error("Error creating blog:", error.message);
 
-        // Return a 400 or 500 depending on the error
-        if (error.message.includes('Incomplete information')) {
-            return res.status(400).json({ 
-                message: error.message 
-            });
-        }
 
         // Generic server error
-        res.status(500).json({ 
-            message: "Internal Server Error",
-        });
+        res.status(400).json(error);
     }
 };
 
