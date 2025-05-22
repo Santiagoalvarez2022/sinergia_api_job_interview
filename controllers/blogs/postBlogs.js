@@ -28,7 +28,9 @@ const postBlogs = async (req, res) => {
         const new_blog = await Blog.create({ title, image, text, design_type,author });
        
         for (let index = 0; index < tagsFound.length; index++) {
-            await new_blog.addTags(tagsFound[index])
+            let result =  await new_blog.addTags(tagsFound[index])
+            console.log('creacion de registro en blogs_tags ', result);
+            
         }
         
         console.log(new_blog);
@@ -40,7 +42,6 @@ const postBlogs = async (req, res) => {
     } catch (error) { 
         // Log the error for debugging
         console.error("Error creating blog:", error.message);
-
 
         // Generic server error
         res.status(400).json(error);

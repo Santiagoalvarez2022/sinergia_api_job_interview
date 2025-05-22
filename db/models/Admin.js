@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
                 primaryKey: true
             },
             username: {
-                type: DataTypes.CHAR(60),
+                type: DataTypes.STRING(60),
                 allowNull: false,
                 unique:true
             },
