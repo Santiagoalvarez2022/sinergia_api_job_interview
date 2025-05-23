@@ -20,6 +20,10 @@ app.use(cors({
   optionsSuccessStatus: 200,
   credentials: true,   
 }));  
+
+console.log('FRONT PERMITIDO ', URL_FRONT);
+console.log('ADMIN PERMITIDO ', URL_FRONT_ADMIN);
+
    
 connectionToDatabase() 
 app.use(express.urlencoded({extended: true}));
