@@ -6,8 +6,9 @@ const seeds = async(Admin, Tag) =>{
    const tags = [
     'Búsqueda de empleo',
     'Para reclutadores',
-    'Preparación para entrevista',
+    'Habilidades para la vida',
   ];
+
 
   // 1. Verificamos qué tags ya existen en la base de datos
   const existingTags = await Tag.findAll({
