@@ -10,7 +10,7 @@ const TextToVoice = async (openIa,response,clientId) =>{
   let newAudio = await openIa.audio.speech.create({
     model: "tts-1",
     voice: "nova",
-    input: response,
+    input: response, 
   });
   
   const directoryPath = path.resolve(`./public/ia/${clientId}`);
