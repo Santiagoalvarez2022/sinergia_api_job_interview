@@ -19,7 +19,7 @@ const findOrCreateSession = (clientId=null,messages=[], stage='', job='') =>{
             //modifico session ya iniciada 
         sessions[findConversation] = { 
             clientId,
-            stage :preVersion.stage,
+            stage : preVersion.stage,
             job : preVersion.job,
             messages : sessions[findConversation].messages.concat(messages),
         }

@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
 });
 
 // Función para enviar un correo de bienvenida
-async function sendWelcomeEmail(to, name) {
-   
+async function sendWelcomeEmail(to, name, token) {
+  console.log('datos que recibo en snedWelcoomeEmail ', token);
     try {
       await transporter.sendMail({
         from: process.env.GMAIL_USER, // Remitente

@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 
 
 const createToken = ({name, email, nickname}) =>{
+  console.log('create token ',name, email, nickname );
+  
     return jwt.sign(
     {   
         email,
