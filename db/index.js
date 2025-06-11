@@ -80,7 +80,7 @@ EmailVerification.belongsTo(User);
 
 
 sequelize 
-  .sync({ alter: true}) 
+  .sync() 
   // seeds para los usuarios 
   .then(async()=>{
     await seeds(Admin, Tag)
