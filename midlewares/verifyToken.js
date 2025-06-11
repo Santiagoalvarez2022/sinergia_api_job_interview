@@ -17,10 +17,18 @@ const authenticateToken =  (req, res, next) => {
     // Verificamos el token
     jwt.verify(token,  process.env.JWT_SECRET, async (err, user) => {
         if (err) return res.status(403).json({ message: 'Token inválido' });
-        const findUser = await UserExist(user.id)
-
-        req.user = user; // Guardamos los datos del usuario en req.user
-        next(); // Pasamos al siguiente middleware o controlador
+        try {
+            const findUser = await UserExist(user.id)
+            console.log('FIND USER ====> ', findUser);
+            if (findUser) {
+                
+                req.user = user; // Guardamos los datos del usuario en req.user
+                next(); // Pasamos al siguiente middleware o controlador
+            }
+        } catch (error) {
+            res.status(404).json(error);
+        }
+        
     });
 };
 

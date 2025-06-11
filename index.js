@@ -40,6 +40,7 @@ if (WORK_SPACE==='development') {
   const cert = fs.readFileSync(certPath);
 
   const server = https.createServer({ key, cert }, app);
+  
   server.listen(PORT , () => {
     console.log(`HTTPS Server is running in development on port ${process.env.PORT }`);
   });
