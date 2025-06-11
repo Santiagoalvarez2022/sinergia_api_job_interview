@@ -102,10 +102,32 @@ async function successUpdatePassword(to, nickname) {
     }
 }
 
+// Función para enviar un correo de bienvenida
+async function receiveMessage( name_sender, gmail_sender, message,subject) {
+    try {
+        await transporter.sendMail({
+          from: process.env.GMAIL_USER,
+          to: process.env.GMAIL_USER,
+          subject,
+          html: `
+          <div style="font-family: sans-serif;">
+            <p style="font-size: 16px; line-height: 1.5;">Este mensaje es recibido desde el home, enviado por ${name_sender}, gmail : ${gmail_sender}</p>
+            <br />  
+            <p style="font-size: 16px; line-height: 1.5;">${message}</p>
+          </div>
+          `
+      });
 
+      console.log('Correo de recieveMessage se ha enviado ');
+    } catch (error) {
+      console.error('Error al enviar el correo de bienvenida:', error);
+      throw error; // Re-lanza el error para que el controlador pueda manejarlo
+    }
+};
 
 module.exports = {
     sendWelcomeEmail,
     sendRequestPassword,
-    successUpdatePassword
+    successUpdatePassword,
+    receiveMessage
 };
