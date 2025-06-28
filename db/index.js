@@ -4,8 +4,6 @@ const fs = require("fs");
 const path = require("path");
 const { Sequelize } = require('sequelize');
 const { USER_PG, PASSWORD_PG, HOST_PG, DATABASE_PG, PORT_PG, URL_DATABASE, WORK_SPACE } = process.env;
-const bcrypt = require('bcrypt');
-const { createAuthorAdmin } = require('./seeds/seed');
 const { seeds } = require('./seeds/seed.js');
 
 
